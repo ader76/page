@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .contact-content {
+            background: rgba(0, 0, 0, 0.3); /* Adjusted for more transparency */
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .contact-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .contact-content ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2em;
+        }
+
+        .contact-content ul li {
+            margin: 10px 0;
+        }
+
+        .contact-content ul li strong {
+            font-weight: bold;
+        }
+
+        .back-home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;  /* Placing it at the top right corner */
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 2;
+        }
+
+        .back-home-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        .whatsapp-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-icon img:hover {
+            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home-button">Back Home</a>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="videos/background.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="contact-container">
+        <div class="contact-content">
+            <h1>Contactez-nous</h1>
+<p>Pour plus d'informations ou pour organiser une visite, veuillez nous contacter via les informations ci-dessous :</p>
+<ul>
+    <li>
+        <strong>Téléphone/Whatsapp :</strong> 
+        <a href="tel:+212661247505">+212 661 247 505</a>
+    </li>
+    <li>
+        <strong>Email :</strong> 
+        <a href="mailto:contact@souissiluxuryestate.pro">contact@souissiluxuryestate.pro</a>
+    </li>
+</ul>
+    </div>
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/212661247505" target="_blank" class="whatsapp-icon">
+        <img src="images/whatsapp.webp" alt="WhatsApp">
+    </a>
+</body>
+</html>

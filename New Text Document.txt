@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House for Sale</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Luxury Home for Sale</h1>
+            <p>Experience the ultimate in luxury living with this stunning property.</p>
+            <button class="cta-button">Schedule a Visit</button>
+        </div>
+    </div>
+    <div class="details">
+        <h2>About the Property</h2>
+        <p>This exquisite home features breathtaking views, modern amenities, and ample space for the entire family.</p>
+        <ul>
+            <li>5 Bedrooms</li>
+            <li>4 Bathrooms</li>
+            <li>Swimming Pool</li>
+            <li>Home Theater</li>
+            <li>Smart Home Technology</li>
+        </ul>
+    </div>
+</body>
+</html>
