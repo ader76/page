@@ -1,0 +1,19 @@
+territoire,niveau,taux_participation_pct,votants,inscrits,source,fiabilite,remarque
+National,pays,38.02,~6 000 000,15801162,Ministère de l'Intérieur (Le360 ; Médias24 ; EcoActu),elevee,"38,08 % selon La Vie Éco, Al Jazeera, maacom : écart non résolu"
+Casablanca-Settat,region,34.60,1013491,~2 929 000,Médias24 24/09 (circonscription régionale ; résultats provisoires),moyenne,"un résumé indique 1,13 M votants : incohérent, 1 013 491 retenu car cohérent avec 34,60 %"
+Rabat-Salé-Kénitra,region,50.94,,,résumé de recherche (source exacte non identifiée),faible,"valeur 50,94 % non confirmée ; Al3omk donne 36,51 % à 80 % du dépouillement pour la circonscription régionale"
+Marrakech-Safi,region,~39,,,résumé de recherche (Médias24 « taux définitifs dans plusieurs régions »),faible,
+Marrakech (préfecture),prefecture,~34,,,idem,faible,
+Souss-Massa,region,"37.56 (final, Al3omk/20minutes) ; 26.98 (relevé intermédiaire)",499846,,idem,moyenne,"26,98 % correspond vraisemblablement à un relevé en cours de journée"
+Agadir-Ida Ou Tanane,prefecture,19.01,,,idem,faible,
+Taroudant,province,32.05,,,idem,faible,
+Tiznit,province,36.22,,,idem,faible,
+Chtouka-Aït Baha,province,26.05,,,idem,faible,
+Tata,province,47.58,,,idem,faible,
+Oriental,region,25.33,,,idem,faible,"incohérent en apparence avec Berkane 37,89 / Guercif 38,60 / Taourirt 30 : possible heure de relevé différente"
+Berkane,province,37.89,,,idem,faible,
+Guercif,province,38.60,,,idem,faible,
+Taourirt,province,30,,,idem,faible,
+Laâyoune-Sakia El Hamra,region,77,,,Le360 ; H24info ; LesEco,moyenne,
+Dakhla-Oued Ed-Dahab,region,"65,42 (H24info) / 61 (Le360)",,,H24info ; Le360,faible,écart non résolu
+Guelmim-Oued Noun,region,53,,,Le360,faible,

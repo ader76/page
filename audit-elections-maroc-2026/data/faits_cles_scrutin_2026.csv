@@ -1,0 +1,23 @@
+indicateur,valeur,unite,source_principale,sources_concordantes,remarque
+date_scrutin,2026-09-23,date,Ministère de l'Intérieur via Maroc.ma,"Hespress, Le360, Médias24, France24",mercredi
+sieges_total,395,sieges,Ministère de l'Intérieur,"Le Matin, Le360, Infomédiaire",305 locaux + 90 régionaux
+sieges_locaux,305,sieges,"LeSiteinfo guide du vote; Le Brief; Infomédiaire",Wikipédia FR (résumé),
+sieges_regionaux,90,sieges,"LeSiteinfo guide du vote; Le Brief; Infomédiaire",Wikipédia FR (résumé),
+inscrits,15801162,electeurs,"Maroc.ma (listes arrêtées après révision exceptionnelle)","Aujourd'hui le Maroc; H24info; La Vie Éco","Hespress/maacom citent 15 800 136 : écart de 1 026 non résolu"
+variation_inscrits_vs_2021,-1707965,electeurs,Maroc.ma (résumé de recherche),,implique ~17 509 127 inscrits en 2021
+part_inscrits_urbains,55,%,Maroc.ma (résumé de recherche),,45 % ruraux
+part_inscrits_femmes,46,%,Maroc.ma,Aujourd'hui le Maroc,
+part_inscrits_60_ans_et_plus,29,%,Maroc.ma (résumé de recherche),,
+taux_participation_national,38.02,%,Ministère de l'Intérieur,"Le360, Médias24, France24, EcoActu, Maroc.ma","La Vie Éco et maacom.ma écrivent 38,08 % : écart non résolu"
+votants,~6000000,electeurs,Le360 / Le Desk (« près de 6 millions »),,chiffre exact non trouvé
+bulletins_nuls_2026,NON_TROUVE,bulletins,,,
+suffrages_exprimes_2026,NON_TROUVE,voix,,,
+bureaux_de_vote,40694,bureaux,H24info; Le360,,3 931 bureaux centraux
+candidats,7288,candidats,Infomédiaire,,1 850 listes
+participation_Laayoune_Sakia_El_Hamra,77,%,Le360 (résumé de recherche),H24info,
+participation_Dakhla_Oued_Ed_Dahab,"65,42 ou 61",%,"H24info (65,42) vs Le360 (61)",,écart non résolu
+participation_Guelmim_Oued_Noun,53,%,Le360 (résumé de recherche),,
+participation_2021_rappel,"50,88 (Le360) — valeur officielle 2021 à revérifier",%,Le360,,ne pas utiliser sans vérification
+quotient_electoral,inscrits / sieges de la circonscription,regle,"LeSiteinfo; Le Brief; Infomédiaire",,"répartition au plus fort reste, sans seuil"
+resultats_definitifs,identiques aux provisoires,statut,"Ministère de l'Intérieur 25/09/2026","Le Matin; Hespress FR; La Vie Éco; LeSiteinfo; Article19","PV déposés à la Cour constitutionnelle"
+voix_nationales_par_parti,NON_PUBLIEES au 26/09/2026,statut,"recherches multiples FR/AR",,empêche le calcul national voix/siège
