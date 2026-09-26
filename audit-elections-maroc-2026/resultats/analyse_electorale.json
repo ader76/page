@@ -1,0 +1,299 @@
+{
+  "sieges": [
+    {
+      "parti_sigle": "PAM",
+      "sieges_2026": 97,
+      "sieges_2021": 87.0,
+      "variation": 10.0,
+      "part_sieges_2026": 0.24556962025316456,
+      "sieges_par_circonscription": 0.9326923076923077
+    },
+    {
+      "parti_sigle": "RNI",
+      "sieges_2026": 66,
+      "sieges_2021": 102.0,
+      "variation": -36.0,
+      "part_sieges_2026": 0.1670886075949367,
+      "sieges_par_circonscription": 0.6346153846153846
+    },
+    {
+      "parti_sigle": "PI",
+      "sieges_2026": 65,
+      "sieges_2021": 81.0,
+      "variation": -16.0,
+      "part_sieges_2026": 0.16455696202531644,
+      "sieges_par_circonscription": 0.625
+    },
+    {
+      "parti_sigle": "PJD",
+      "sieges_2026": 54,
+      "sieges_2021": 13.0,
+      "variation": 41.0,
+      "part_sieges_2026": 0.13670886075949368,
+      "sieges_par_circonscription": 0.5192307692307693
+    },
+    {
+      "parti_sigle": "MP",
+      "sieges_2026": 29,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.07341772151898734,
+      "sieges_par_circonscription": 0.27884615384615385
+    },
+    {
+      "parti_sigle": "USFP",
+      "sieges_2026": 26,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.06582278481012659,
+      "sieges_par_circonscription": 0.25
+    },
+    {
+      "parti_sigle": "PPS",
+      "sieges_2026": 19,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.04810126582278481,
+      "sieges_par_circonscription": 0.18269230769230768
+    },
+    {
+      "parti_sigle": "UC",
+      "sieges_2026": 17,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.043037974683544304,
+      "sieges_par_circonscription": 0.16346153846153846
+    },
+    {
+      "parti_sigle": "MDS",
+      "sieges_2026": 8,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.020253164556962026,
+      "sieges_par_circonscription": 0.07692307692307693
+    },
+    {
+      "parti_sigle": "ALLIANCE_GAUCHE",
+      "sieges_2026": 8,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.020253164556962026,
+      "sieges_par_circonscription": 0.07692307692307693
+    },
+    {
+      "parti_sigle": "FFD",
+      "sieges_2026": 2,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.005063291139240506,
+      "sieges_par_circonscription": 0.019230769230769232
+    },
+    {
+      "parti_sigle": "INSAF",
+      "sieges_2026": 2,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.005063291139240506,
+      "sieges_par_circonscription": 0.019230769230769232
+    },
+    {
+      "parti_sigle": "PND",
+      "sieges_2026": 1,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.002531645569620253,
+      "sieges_par_circonscription": 0.009615384615384616
+    },
+    {
+      "parti_sigle": "PUD",
+      "sieges_2026": 1,
+      "sieges_2021": NaN,
+      "variation": NaN,
+      "part_sieges_2026": 0.002531645569620253,
+      "sieges_par_circonscription": 0.009615384615384616
+    }
+  ],
+  "urbain_rural": {
+    "chi2": 34.310542775249,
+    "p": 6.435214774337737e-07,
+    "ddl": 4,
+    "cramer_v": 0.2947238259934634,
+    "part_urbaine_ensemble": 0.4379746835443038,
+    "partis": {
+      "PAM": {
+        "urbains": 34,
+        "ruraux": 63,
+        "part_urbaine": 0.35051546391752575,
+        "part_urbaine_autres_partis": 0.4664429530201342,
+        "odds_ratio": 0.6173347036656389,
+        "p_fisher": 0.0590970284074961
+      },
+      "RNI": {
+        "urbains": 26,
+        "ruraux": 40,
+        "part_urbaine": 0.3939393939393939,
+        "part_urbaine_autres_partis": 0.44680851063829785,
+        "odds_ratio": 0.8047619047619048,
+        "p_fisher": 0.49720757810020544
+      },
+      "PI": {
+        "urbains": 29,
+        "ruraux": 36,
+        "part_urbaine": 0.4461538461538462,
+        "part_urbaine_autres_partis": 0.43636363636363634,
+        "odds_ratio": 1.0405092592592593,
+        "p_fisher": 0.8920458908818397
+      },
+      "PJD": {
+        "urbains": 43,
+        "ruraux": 11,
+        "part_urbaine": 0.7962962962962963,
+        "part_urbaine_autres_partis": 0.3812316715542522,
+        "odds_ratio": 6.344755244755245,
+        "p_fisher": 1.2982332022042803e-08
+      },
+      "AUTRES": {
+        "urbains": 41,
+        "ruraux": 72,
+        "part_urbaine": 0.36283185840707965,
+        "part_urbaine_autres_partis": 0.46808510638297873,
+        "odds_ratio": 0.6470959595959596,
+        "p_fisher": 0.07234872499986757
+      }
+    }
+  },
+  "seuils_quotient_pct_suffrages_valides": {
+    "S=2": {
+      "t=0.25": 200.0,
+      "t=0.30": 166.7,
+      "t=0.38": 131.5,
+      "t=0.50": 100.0,
+      "t=0.77": 64.9
+    },
+    "S=3": {
+      "t=0.25": 133.3,
+      "t=0.30": 111.1,
+      "t=0.38": 87.7,
+      "t=0.50": 66.7,
+      "t=0.77": 43.3
+    },
+    "S=4": {
+      "t=0.25": 100.0,
+      "t=0.30": 83.3,
+      "t=0.38": 65.8,
+      "t=0.50": 50.0,
+      "t=0.77": 32.5
+    },
+    "S=5": {
+      "t=0.25": 80.0,
+      "t=0.30": 66.7,
+      "t=0.38": 52.6,
+      "t=0.50": 40.0,
+      "t=0.77": 26.0
+    },
+    "S=6": {
+      "t=0.25": 66.7,
+      "t=0.30": 55.6,
+      "t=0.38": 43.8,
+      "t=0.50": 33.3,
+      "t=0.77": 21.6
+    },
+    "S=12": {
+      "t=0.25": 33.3,
+      "t=0.30": 27.8,
+      "t=0.38": 21.9,
+      "t=0.50": 16.7,
+      "t=0.77": 10.8
+    }
+  },
+  "tanger_assilah": {
+    "sieges": 5,
+    "inscrits": 412447,
+    "participation": 0.2551,
+    "quotient_voix": 82489.4,
+    "suffrages_valides_estimes": 82203.87424579232,
+    "plus_forte_liste_voix": 25886.0,
+    "quotient_atteignable": false,
+    "seuil_quotient_sans_nuls": 0.7840062720501764,
+    "listes": [
+      {
+        "parti": "PJD",
+        "voix": 25886.0,
+        "part_voix": 0.31489999999999996,
+        "part_sieges": 0.2,
+        "indice_conversion": 0.6351222610352494,
+        "elu": true
+      },
+      {
+        "parti": "PAM",
+        "voix": NaN,
+        "part_voix": 0.16649999999999998,
+        "part_sieges": 0.2,
+        "indice_conversion": 1.2012012012012014,
+        "elu": true
+      },
+      {
+        "parti": "MP",
+        "voix": 12010.0,
+        "part_voix": 0.1461,
+        "part_sieges": 0.2,
+        "indice_conversion": 1.3689253935660506,
+        "elu": true
+      },
+      {
+        "parti": "PI",
+        "voix": 7755.0,
+        "part_voix": 0.0942,
+        "part_sieges": 0.2,
+        "indice_conversion": 2.1231422505307855,
+        "elu": true
+      },
+      {
+        "parti": "RNI",
+        "voix": 7199.0,
+        "part_voix": 0.0876,
+        "part_sieges": 0.2,
+        "indice_conversion": 2.2831050228310503,
+        "elu": true
+      },
+      {
+        "parti": "ALLIANCE_GAUCHE",
+        "voix": NaN,
+        "part_voix": 0.0453,
+        "part_sieges": 0.0,
+        "indice_conversion": 0.0,
+        "elu": false
+      },
+      {
+        "parti": "USFP",
+        "voix": NaN,
+        "part_voix": 0.0397,
+        "part_sieges": 0.0,
+        "indice_conversion": 0.0,
+        "elu": false
+      },
+      {
+        "parti": "PDI",
+        "voix": NaN,
+        "part_voix": 0.0279,
+        "part_sieges": 0.0,
+        "indice_conversion": 0.0,
+        "elu": false
+      },
+      {
+        "parti": "UC",
+        "voix": NaN,
+        "part_voix": 0.0126,
+        "part_sieges": 0.0,
+        "indice_conversion": 0.0,
+        "elu": false
+      }
+    ],
+    "remarque": "parts de voix issues d'un dépouillement à ~90 % ; suffrages valides estimés = voix PJD / part PJD (approximation)"
+  },
+  "tests_provinciaux": {
+    "statut": "DONNEES_INSUFFISANTES",
+    "manque": "voix par parti, participation, bénéficiaires ASD/RSU, pauvreté et urbanisation PAR PROVINCE (non publiés ou inaccessibles au 26/09/2026)"
+  },
+  "voix_nationales": "NON PUBLIEES au 26/09/2026 : voix/siège et indice de conversion national non calculables"
+}

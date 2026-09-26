@@ -1,0 +1,8 @@
+# sel de pseudonymisation : ne jamais publier
+.salt
+# données brutes et intermédiaires (textes de commentaires, volumineux)
+pipeline/data_work/
+validation/
+__pycache__/
+.pytest_cache/
+*.pyc
