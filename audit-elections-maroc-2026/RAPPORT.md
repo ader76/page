@@ -1,6 +1,6 @@
 # Audit indépendant : opinion politique en ligne et législatives marocaines du 23 septembre 2026
 
-**Date de rédaction :** 26 septembre 2026 (trois jours après le scrutin)
+**Date de rédaction :** 26 septembre 2026 (trois jours après le scrutin) ; mise à jour le même jour à 10 h UTC (échantillon de circonscriptions élargi de 15 à 33).
 **Statut :** rapport intermédiaire. Le volet « réseaux sociaux » n'a **pas** pu être réalisé (voir encadré).
 **Position :** ce rapport ne soutient ni n'attaque aucun parti. Il ne suppose ni fraude, ni absence de fraude.
 
@@ -8,23 +8,23 @@
 >
 > 1. **Aucun commentaire en ligne n'a pu être collecté.** L'environnement technique dans lequel l'audit a été mené bloque l'accès réseau à Facebook, TikTok, YouTube, Instagram, X, Reddit et à tous les sites de médias marocains testés (plus de 60 hôtes testés, tous refusés hormis les dépôts de logiciels ; voir [`data/acces_plateformes.csv`](data/acces_plateformes.csv)). Seul un moteur de recherche restait utilisable ; il donne accès aux articles de presse, pas aux sections de commentaires.
 > 2. **Conséquence : les questions A, B, C et Q1 à Q5 restent sans réponse chiffrée.** Donner des pourcentages de « soutien », de « rejet » ou de « doute » reviendrait à les inventer. Ce rapport ne le fait pas.
-> 3. **Ce qui a été fait :** (a) une base électorale sourcée (sièges, participation, mode de scrutin, 15 circonscriptions documentées), (b) une base de 18 allégations d'irrégularités classées de A (rumeur) à G (jugement), (c) la synthèse des observateurs, (d) des tests statistiques sur ce qui est mesurable, (e) une chaîne d'analyse complète et testée, prête à produire les chiffres manquants dès que l'accès aux données existe.
+> 3. **Ce qui a été fait :** (a) une base électorale sourcée (sièges, participation, mode de scrutin, 33 circonscriptions documentées), (b) une base de 18 allégations d'irrégularités classées de A (rumeur) à G (jugement), (c) la synthèse des observateurs, (d) des tests statistiques sur ce qui est mesurable, (e) une chaîne d'analyse complète et testée, prête à produire les chiffres manquants dès que l'accès aux données existe.
 
 ---
 
 ## Partie 1 — Résumé exécutif (10 conclusions)
 
-1. **L'opinion en ligne n'a pas été mesurée.** Nombre de commentaires analysés : **0**. Toute affirmation sur « ce que pensent les internautes » serait, dans ce rapport, sans base. La chaîne de collecte et d'analyse est prête (870 requêtes, 5 langues/écritures, 25 tests automatisés).
+1. **L'opinion en ligne n'a pas été mesurée.** Nombre de commentaires analysés : **0**. Toute affirmation sur « ce que pensent les internautes » serait, dans ce rapport, sans base. La chaîne de collecte et d'analyse est prête (870 requêtes, 5 langues/écritures, 26 tests automatisés).
 
 2. **Résultats officiels définitifs (ministère de l'Intérieur, 25/09/2026)** — identiques aux résultats provisoires : PAM 97 sièges, RNI 66, Istiqlal 65, PJD 54, MP 29, USFP 26, PPS 19, UC 17, MDS 8, Alliance de la gauche 8, FFD 2, Insaf 2, Néo-Démocrates 1, Unité et Démocratie 1 (total 395). Participation : 38,02 % de 15 801 162 inscrits. **Les voix nationales par parti n'ont pas été publiées** : le test national « voix par siège » est donc impossible pour l'instant.
 
-3. **Le mode de scrutin sépare mécaniquement les voix et les sièges.** Le quotient se calcule sur les *inscrits*, pas sur les votants. Avec 38 % de participation, une liste doit réunir **66 % des voix valides** pour gagner un siège « au quotient » dans une circonscription de 4 sièges. Presque aucune n'y arrive : les sièges vont donc aux « plus forts restes », soit en pratique **un siège par liste arrivée dans le peloton de tête**. Exemple vérifié à Tanger-Assilah : le PJD obtient 31,5 % des voix et 1 siège sur 5 ; le RNI obtient 8,8 % des voix et… 1 siège sur 5 aussi.
+3. **Le mode de scrutin sépare mécaniquement les voix et les sièges.** Le quotient se calcule sur les *inscrits*, pas sur les votants. Avec 38 % de participation, une liste doit réunir **66 % des voix valides** pour gagner un siège « au quotient » dans une circonscription de 4 sièges. Presque aucune n'y arrive : les sièges vont donc aux « plus forts restes », soit en pratique **un siège par liste arrivée dans le peloton de tête**. Exemple vérifié à Tanger-Assilah : le PJD obtient 31,5 % des voix et 1 siège sur 5 ; le RNI obtient 8,8 % des voix et… 1 siège sur 5 aussi. À Meknès, six partis se partagent les six sièges, un chacun, du PJD (19,1 %) au RNI (6,9 %).
 
 4. **Le nombre de sièges mesure surtout la présence d'un parti dans beaucoup de circonscriptions, pas la force de son soutien là où il est fort.** Le PAM obtient 97 sièges pour 104 circonscriptions (92 locales + 12 régionales) : sous la règle observée d'un siège maximum par liste, cela suppose qu'il est élu dans la très grande majorité des circonscriptions.
 
-5. **Géographie :** le PJD concentre ses sièges en ville (43 sur 54, soit 79,6 %, contre 38,1 % pour les autres partis ; test exact de Fisher, p ≈ 1×10⁻⁸). Le PAM a 65 % de sièges ruraux, mais cet écart avec les autres partis **n'est pas statistiquement significatif** (p = 0,059).
+5. **Géographie :** le PJD concentre ses sièges en ville (43 sur 54, soit 79,6 %, contre 38,1 % pour les autres partis ; test exact de Fisher, p ≈ 1×10⁻⁸). Dans l'échantillon de circonscriptions documentées, il arrive premier dans 13 des 19 urbaines et dans aucune des 7 rurales (p ≈ 0,005 ; échantillon non aléatoire). Le PAM a 65 % de sièges ruraux, mais cet écart avec les autres partis **n'est pas statistiquement significatif** (p = 0,059).
 
-6. **La population qui vote n'est pas la population qui commente en ligne.** Abstention de 62 % ; environ 474 000 inscrits de 18-24 ans sur environ 3,89 millions de jeunes de cet âge (≈ 12 %) ; fichier électoral plus rural (45 %) que la population (37,2 %) ; participation faible dans les grandes villes (Casablanca-Settat 34,6 %, Tanger-Assilah 25,5 %, Fès-Nord 25,9 %) et forte dans le Sud (Laâyoune-Sakia El Hamra 77 %). Ces faits **rendent plausible** un écart entre opinion en ligne et résultats, **sans le démontrer**.
+6. **La population qui vote n'est pas la population qui commente en ligne.** Abstention de 62 % ; environ 474 000 inscrits de 18-24 ans sur environ 3,89 millions de jeunes de cet âge (≈ 12 %) ; fichier électoral plus rural (45 %) que la population (37,2 %) ; participation faible dans les grandes villes (Casablanca-Settat 34,6 %, Oujda-Angad 25,1 %, Tanger-Assilah 25,5 %, Fès-Nord 25,9 %, Agadir 26,9 %) et plus forte dans les campagnes (Chichaoua ≈ 54,8 %, Al Haouz 44,6 %) et dans le Sud (Laâyoune-Sakia El Hamra 77 %). Ces faits **rendent plausible** un écart entre opinion en ligne et résultats, **sans le démontrer**.
 
 7. **Irrégularités : 18 éléments documentés, aucune décision de justice (catégorie G = 0).** 7 relèvent d'enquêtes ou d'interpellations (Tanger, Tétouan, Marrakech, Tassoultante, piratage allégué au MP) ; 93 plaintes électorales ont été enregistrées par les parquets du 21/08 au 15/09 (229 en 2021). Les accusations viennent de plusieurs camps : PJD, PAM, Alliance de la gauche, MP, Istiqlal.
 
@@ -49,23 +49,25 @@
 | Période couverte | aucune | P1 à P5 définies dans le code (`pipeline/common.py`) |
 | Langues | aucune | détection prévue : arabe standard, darija (arabe et latin), français, anglais, amazighe |
 
-Le détail des tests d'accès, heure par heure, est dans [`data/acces_plateformes.csv`](data/acces_plateformes.csv). Trois voies ont été essayées : le réseau du conteneur (refus 403 pour tous les réseaux sociaux, médias, Wikipédia, archives), l'outil de lecture de pages web (même refus), et le moteur de recherche (fonctionne, mais ne montre ni commentaires ni texte brut des pages).
+Le détail des tests d'accès, heure par heure, est dans [`data/acces_plateformes.csv`](data/acces_plateformes.csv). Trois voies ont été essayées : le réseau du conteneur (refus 403 pour tous les réseaux sociaux, médias, Wikipédia, archives), l'outil de lecture de pages web (même refus), et le moteur de recherche (fonctionne, mais ne montre ni commentaires ni texte brut des pages). Dernier test : 26/09 à 10 h 20 UTC, toujours bloqué (le proxy refuse l'ouverture de la connexion avec un code 403).
 
 ### 2.2 Corpus documentaire effectivement constitué
 
 | Élément | Volume | Fichier |
 |---|---|---|
-| Recherches documentaires réalisées | 77 (40 en français, 29 en arabe, 8 en anglais) | [`data/recherches_documentaires_effectuees.csv`](data/recherches_documentaires_effectuees.csv) |
+| Recherches documentaires réalisées | 92 (43 en français, 41 en arabe, 8 en anglais) | [`data/recherches_documentaires_effectuees.csv`](data/recherches_documentaires_effectuees.csv) |
 | Résultats nationaux (14 partis) | 395 sièges | [`data/resultats_nationaux_2026.csv`](data/resultats_nationaux_2026.csv) |
 | Indicateurs clés du scrutin (sources, écarts signalés) | 23 indicateurs | [`data/faits_cles_scrutin_2026.csv`](data/faits_cles_scrutin_2026.csv) |
-| Circonscriptions documentées | 15 (58 lignes parti × circonscription) | [`data/circonscriptions_2026_echantillon.csv`](data/circonscriptions_2026_echantillon.csv) |
+| Circonscriptions documentées | 33 (28 locales, 5 régionales ; 111 lignes parti × circonscription) | [`data/circonscriptions_2026_echantillon.csv`](data/circonscriptions_2026_echantillon.csv) |
+| Premier parti et participation par circonscription | 28 circonscriptions locales | [`data/premier_par_circonscription.csv`](data/premier_par_circonscription.csv) |
+| Bulletins nuls | 4 circonscriptions + rappel 2021 | [`data/bulletins_nuls_2026.csv`](data/bulletins_nuls_2026.csv) |
 | Répartition urbain/rural des sièges | 4 grands partis + autres | [`data/sieges_urbain_rural_2026.csv`](data/sieges_urbain_rural_2026.csv) |
 | Participation régionale | 18 lignes (fiabilité notée) | [`data/participation_regionale_2026.csv`](data/participation_regionale_2026.csv) |
 | Allégations d'irrégularités | 18 (catégories A-G) | [`data/allegations_irregularites.csv`](data/allegations_irregularites.csv) |
 | Observateurs | 3 organismes | [`data/observateurs.csv`](data/observateurs.csv) |
 | Plan de requêtes pour la collecte en ligne | 870 requêtes, 7 strates | [`data/plan_requetes.csv`](data/plan_requetes.csv) |
 
-**Règle appliquée :** chaque chiffre porte sa source. Quand deux sources divergent, les deux valeurs sont notées (ex. participation 38,02 % selon le ministère, 38,08 % selon d'autres médias). Trois erreurs de relais de presse ont été repérées et écartées (voir Partie 10).
+**Règle appliquée :** chaque chiffre porte sa source. Quand deux sources divergent, les deux valeurs sont notées (ex. participation 38,02 % selon le ministère, 38,08 % selon d'autres médias). Quatre erreurs de relais de presse ont été repérées et corrigées (voir Partie 10).
 
 ---
 
@@ -174,10 +176,14 @@ Règle (loi organique en vigueur, confirmée par [LeSiteinfo](https://www.lesite
 
 ![Seuil du quotient](resultats/figures/03_seuil_quotient.png)
 
-Presque aucune liste n'atteint ces seuils : les sièges sont distribués au plus fort reste, c'est-à-dire **un siège à chacune des listes arrivées en tête, dans l'ordre, quel que soit l'écart de voix entre elles**. Deux cas documentés :
+Presque aucune liste n'atteint ces seuils : les sièges sont distribués au plus fort reste, c'est-à-dire **un siège à chacune des listes arrivées en tête, dans l'ordre, quel que soit l'écart de voix entre elles**. Cas documentés :
 
 - **Tanger-Assilah (5 sièges, 412 447 inscrits, participation 25,5 %)** : quotient = 82 489 voix, soit plus que le total des suffrages valides (≈ 82 200). Le PJD, premier avec 25 886 voix (31,5 %), obtient 1 siège, comme le PAM (16,65 %), le MP (14,6 %), l'Istiqlal (9,4 %) et le RNI (8,8 %). **Indice de conversion** : PJD 0,64 ; PAM 1,20 ; MP 1,37 ; Istiqlal 2,12 ; RNI 2,28 (un indice de 1 signifie « autant de % de sièges que de % de voix »).
+- **Meknès (6 sièges, participation 33,15 %)** : six partis élus, un siège chacun. PJD 19,1 % des voix, MP 17,1 %, UC 15,1 %, Istiqlal 11,0 %, PAM 10,3 %, RNI 6,9 %. **Indices** : PJD 0,87 ; MP 0,97 ; UC 1,10 ; Istiqlal 1,51 ; PAM 1,61 ; RNI 2,41.
+- **Agadir-Ida Outanane (4 sièges, participation 26,9 %)** : PJD 23,6 %, RNI 17,3 %, PAM 16,4 %, USFP 11,3 % élus, un siège chacun ; l'Istiqlal (9,5 %) est cinquième, sans siège. **Indices** : PJD 1,06 ; RNI 1,44 ; PAM 1,52 ; USFP 2,21.
 - **Fès-Meknès, liste régionale (10 sièges, 77 % des bureaux dépouillés)** : 10 listes différentes, 1 siège chacune.
+
+Dans ces trois circonscriptions urbaines, le PJD, arrivé premier, a toujours le plus faible indice de conversion : c'est la conséquence directe de la règle « un siège par liste », pas un traitement particulier.
 
 ![Tanger-Assilah](resultats/figures/04_tanger_assilah_voix_sieges.png)
 
@@ -212,25 +218,46 @@ Sources : [Belpresse](https://fr.belpresse.com/elections/legislatives-2026-entre
 
 **Limite importante :** la méthode de classement « urbain / rural » des circonscriptions (et des 90 sièges régionaux) utilisée par Belpresse n'est pas décrite dans les sources consultées.
 
-### 6.2 Les grandes villes documentées (échantillon non aléatoire)
+### 6.2 Les circonscriptions documentées (échantillon non aléatoire)
 
-| Circonscription | Sièges | Premier | Élus connus | Statut des chiffres |
-|---|---:|---|---|---|
-| Casablanca-Anfa | 4 | PJD (7 358 voix) | PJD, PAM, Alliance de la gauche, RNI | pourcentages publiés calculés sur les 4 élus seulement |
-| Tanger-Assilah | 5 | PJD (25 886 ; 31,5 %) | PJD, PAM, MP, PI, RNI | quasi final |
-| Fès-Nord | 4 | PJD (9 943 ; 24,7 %) | PJD, MP, PAM, PI | final |
-| Fès-Sud | 4 | PJD (≈ 10 800 ; 24,6 %) | — | officieux, arrondi |
-| Marrakech-Ménara | 3 | PAM (12 107) | PAM, PJD, PI | partiel (72 %) |
-| Marrakech-Guéliz | 3 | PAM (10 591) | PAM, PJD, PI probables | partiel (74 %) |
-| Marrakech-Médina | 3 | PAM (11 689) | PAM, PI, PJD probables | partiel (92 %) |
-| Rabat-Océan | — | PAM (7 386) | dont PAM et PJD | partiel |
-| Rabat-Chellah | — | PAM (7 298) | — | partiel (75 %) |
+Classement « urbain / rural » établi par l'auteur d'après la géographie des circonscriptions (détail et statut de chaque chiffre dans [`data/premier_par_circonscription.csv`](data/premier_par_circonscription.csv)). Avec la règle du plus fort reste, la liste arrivée première obtient toujours au moins un siège : « élu » peut donc se déduire du premier rang quand la presse ne nomme pas les élus.
 
-Sur ces 9 circonscriptions urbaines, le PJD arrive en tête dans 4 et le PAM dans 5. Ce n'est pas un échantillon représentatif (il dépend de ce que la presse a publié) : il sert d'illustration, pas de preuve. Les données de Salé, Témara, Meknès, Agadir, Kénitra et Oujda n'ont pas été trouvées avec des voix chiffrées (à Meknès, la presse rapporte seulement que le PJD Abdellah Bouanou est réélu avec plus de 14 000 voix d'avance).
+| Milieu | Circonscription | Premier | PJD élu ? | Participation | Statut des chiffres |
+|---|---|---|---|---:|---|
+| urbain | Casablanca-Anfa | PJD (7 358 voix) | oui | — | final ou quasi final |
+| urbain | Casablanca-Aïn Chock | PJD | oui | — | final |
+| urbain | Casablanca-Hay Hassani | PJD (8 370) | oui (déduit du 1er rang) | — | statut non précisé ; **4 voix** entre le 2e (Istiqlal, 4 452) et le 3e (PAM, 4 448) |
+| urbain | Casablanca-Sidi Bernoussi | PJD | oui | — | final |
+| urbain | Rabat-Océan | PAM (7 386) | oui | — | partiel |
+| urbain | Rabat-Chellah | PAM | ? | — | partiel |
+| urbain | Salé-Médina | PJD | oui | — | final (4 partis, 1 siège chacun) |
+| urbain | Salé-Al Jadida | PJD (8 371) | ? | — | préliminaire |
+| urbain | Skhirat-Témara | PJD | oui (contesté) | 35,2 % | **sources contradictoires** sur les élus |
+| urbain | Kénitra | PJD (13 874) | oui | — | final |
+| urbain | Tanger-Assilah | PJD (25 886) | oui | 25,5 % | quasi final |
+| urbain | Fès-Nord | PJD (9 943) | oui | 25,9 % | final |
+| urbain | Fès-Sud | PJD (≈ 10 800) | ? | — | officieux |
+| urbain | Meknès | PJD (18 024) | oui | 33,15 % | final |
+| urbain | Marrakech-Ménara, Guéliz, Médina | PAM (3 fois) | oui / probable | — | partiels (72-92 %) |
+| urbain | Agadir-Ida Outanane | PJD (14 900) | oui | 26,9 % | final (élus) |
+| urbain | Oujda-Angad | PAM | oui | 25,1 % | voix partielles |
+| rural | Chichaoua | PAM (24 062) | non | ≈ 54,8 % | préliminaire |
+| rural | Al Haouz | RNI (23 422) | probable (4e) | 44,6 % | préliminaire/final |
+| rural | Taroudant-Sud | Istiqlal (25 392) | ? | — | final ; PJD en tête au début du dépouillement |
+| rural | Taroudant-Nord | RNI | ? | — | final |
+| rural | Azilal | PAM | **non** | — | final ; victoire annoncée sur Facebook par la tête de liste PJD, démentie par les résultats officiels |
+| rural | Sidi Bennour | non-PJD | non | — | provisoire |
+| rural | Zagora | USFP | ? | — | final |
+| mixte | Errachidia | PJD | oui | 40,25 % | final |
+| mixte | Safi | PJD (17 962) | oui | — | statut non précisé |
+
+**Test.** Le PJD arrive premier dans **13 des 19** circonscriptions urbaines documentées et dans **0 des 7** rurales (test exact de Fisher, p ≈ 0,005). **Limite forte :** ces circonscriptions sont celles dont la presse a publié les résultats ; les villes ont été cherchées d'après votre liste, les provinces rurales d'après la liste « rurale » fixée avant de voir les résultats, mais d'autres circonscriptions pourraient modifier le tableau.
 
 ### 6.3 Pourquoi l'urbain pèse moins que son poids démographique
 
-Trois mécanismes se cumulent, tous documentés : (1) les villes votent moins (ex. Tanger-Assilah 25,5 % contre 77 % à Laâyoune) ; (2) le fichier électoral est plus rural que la population (45 % d'inscrits ruraux pour 37,2 % de ruraux) ; (3) dans une grande circonscription urbaine, un parti dominant ne gagne en général qu'un siège (Partie 5.4). Les deux premiers mécanismes réduisent le poids des voix urbaines, le troisième réduit leur conversion en sièges.
+Trois mécanismes se cumulent, tous documentés : (1) les villes votent moins : dans l'échantillon, chacune des 3 circonscriptions rurales ou mixtes chiffrées (40,25 à 54,8 %) vote davantage que chacune des 6 urbaines (25,1 à 35,2 %) (test de Mann-Whitney exact, p ≈ 0,024 ; échantillon non aléatoire), et Laâyoune-Sakia El Hamra atteint 77 % ; (2) le fichier électoral est plus rural que la population (45 % d'inscrits ruraux pour 37,2 % de ruraux) ; (3) dans une grande circonscription urbaine, un parti dominant ne gagne en général qu'un siège (Partie 5.4). Les deux premiers mécanismes réduisent le poids des voix urbaines, le troisième réduit leur conversion en sièges.
+
+![Participation par circonscription](resultats/figures/05_participation_circonscriptions.png)
 
 ---
 
@@ -274,7 +301,7 @@ Signaux externes (non mesurés ici) : pages anonymes le jour du vote, 66 contenu
 |---|---|---|---|
 | H1 | Le PAM a le plus de sièges | **CONFIRMÉE PAR LES DONNÉES** | résultats définitifs |
 | H2 | Les résultats définitifs diffèrent des provisoires | **CONTREDITE PAR LES DONNÉES** | communiqué du 25/09 : identiques |
-| H3 | Le PJD concentre ses sièges en milieu urbain | **CONFIRMÉE PAR LES DONNÉES** | 43/54 ; Fisher p ≈ 1×10⁻⁸ (classement urbain/rural de la presse) |
+| H3 | Le PJD concentre ses sièges en milieu urbain | **CONFIRMÉE PAR LES DONNÉES** | 43/54 ; Fisher p ≈ 1×10⁻⁸ (classement urbain/rural de la presse) ; 1er dans 13/19 circonscriptions urbaines documentées contre 0/7 rurales (p ≈ 0,005) |
 | H4 | Le PAM a un profil plus rural / plus dispersé | **PARTIELLEMENT COMPATIBLE** | 65 % de sièges ruraux mais p = 0,059 ; 97 sièges / 104 circonscriptions ; voix non disponibles |
 | H5 | Le mode de scrutin comprime les écarts de voix en sièges | **CONFIRMÉE PAR LES DONNÉES** | calcul du quotient ; Tanger-Assilah ; Fès-Meknès régional |
 | H6 | Abstention et sous-inscription des jeunes séparent l'électorat votant de la population en ligne | **PARTIELLEMENT COMPATIBLE** | côté électoral documenté (62 % d'abstention ; ≈ 12 % des 18-24 ans inscrits) ; côté en ligne non mesuré |
@@ -284,7 +311,7 @@ Signaux externes (non mesurés ici) : pages anonymes le jour du vote, 66 contenu
 | H10 | Les doutes en ligne sont amplifiés par des comptes coordonnés | **DONNÉES INSUFFISANTES** | idem |
 | H11 | Une fraude généralisée a modifié le résultat national | **NON ÉTABLIE** | aucune décision de justice ; faits ponctuels sous enquête ; CNDH : pas d'indice de partialité administrative selon ses données ; mais observateurs empêchés et refus de PV allégués |
 | H12 | Des achats de voix ont eu lieu | **PARTIELLEMENT COMPATIBLE** | interpellations pour corruption d'électeurs présumée à Marrakech, 59 soupçons relevés par le Collectif associatif ; aucun jugement ; ampleur inconnue |
-| H13 | Le renversement de tendance du soir du vote est anormal | **DONNÉES INSUFFISANTES** | explication non frauduleuse rapportée par la presse (résultats des bureaux urbains remontés d'abord) ; test impossible sans PV horodatés par bureau |
+| H13 | Le renversement de tendance du soir du vote est anormal | **DONNÉES INSUFFISANTES** | explication non frauduleuse rapportée par la presse (résultats des bureaux urbains remontés d'abord), compatible avec les cas de Taroudant-Sud et d'Azilal ; test impossible sans PV horodatés par bureau |
 | H14 | L'aide sociale directe (ASD) a orienté le vote vers certains partis | **DONNÉES INSUFFISANTES** | 3,9 M de ménages bénéficiaires, 60 % ruraux, répartition quasi identique à la carte de la pauvreté (ANSS) ; aucune donnée ASD ou de vote par province ; même une corrélation ne prouverait pas une cause |
 | H15 | Une participation plus forte favorise le PAM (ou le PJD) | **DONNÉES INSUFFISANTES** | pas de voix par province |
 
@@ -293,8 +320,8 @@ Signaux externes (non mesurés ici) : pages anonymes le jour du vote, 66 contenu
 ## Partie 10 — Limites
 
 1. **Accès aux données (limite principale).** La politique réseau de l'environnement a bloqué tous les réseaux sociaux, médias marocains, Wikipédia et archives. Aucune donnée n'a été « analysée » en dehors de ce qui est listé en Partie 2.
-2. **Sources de seconde main.** Les chiffres proviennent de la presse, lue à travers un moteur de recherche qui renvoie des résumés. Trois erreurs de relais ont été détectées et écartées : un titre donnant à Fès-Nord des élus RNI/FFD/PI/PAM (vraisemblablement 2021) ; un résumé donnant l'UC en tête à Tanger-Assilah avec 22 816 voix (contredit par cinq sources locales) ; des chiffres nationaux 2021 (17,5 M d'inscrits, 50,18 %) présentés comme 2026. D'autres erreurs de ce type peuvent subsister : tout chiffre doit être revérifié sur les PV officiels.
-3. **Échantillon de circonscriptions non aléatoire** : 15 circonscriptions, surtout urbaines, choisies par la disponibilité dans la presse.
+2. **Sources de seconde main.** Les chiffres proviennent de la presse, lue à travers un moteur de recherche qui renvoie des résumés. Quatre erreurs de relais ont été détectées et corrigées : un titre donnant à Fès-Nord des élus RNI/FFD/PI/PAM (vraisemblablement 2021) ; un résumé donnant l'UC en tête à Tanger-Assilah avec 22 816 voix (contredit par cinq sources locales) ; des chiffres nationaux 2021 (17,5 M d'inscrits, 50,18 %) présentés comme 2026 ; un « écart de plus de 14 000 voix » attribué au PJD à Meknès, alors que les résultats détaillés donnent environ 1 900 voix d'avance sur le MP (la première version de ce rapport reprenait cette erreur). Un résumé sur « 320 recours » concernait en réalité les législatives algériennes et a été écarté. Une dépêche MAP non datée sur Skhirat-Témara reste en contradiction avec deux autres sources. D'autres erreurs de ce type peuvent subsister : tout chiffre doit être revérifié sur les PV officiels.
+3. **Échantillon de circonscriptions non aléatoire** : 33 circonscriptions (dont 19 urbaines et 7 rurales documentées localement), choisies par la disponibilité dans la presse ; plusieurs chiffres sont partiels.
 4. **Classement urbain/rural** repris de la presse, méthode non documentée.
 5. **Pour la future analyse en ligne** (à garder en tête dès la collecte) : les réseaux sociaux ne représentent pas la population (plus jeune, plus urbaine, plus connectée) ; les algorithmes décident de ce qui est visible ; les API restreignent l'accès (Facebook, Instagram, TikTok et X exigent une connexion ou un accès chercheur) ; une personne peut avoir plusieurs comptes ; la géolocalisation est rarement fiable ; la majorité silencieuse ne commente pas ; 62 % des inscrits n'ont pas voté et beaucoup de jeunes ne sont pas inscrits ; les publications sponsorisées attirent un public particulier ; le sarcasme en darija rend la classification automatique fragile (d'où la validation humaine obligatoire sur ≥ 500 commentaires, seuil d'erreur 10 %).
 6. **Délais** : trois jours après le scrutin, les recours, enquêtes et rapports d'observateurs ne sont pas terminés ; les conclusions de ce rapport devront être révisées.
@@ -355,10 +382,10 @@ Non testable sans mesure de l'opinion numérique. En revanche, un **décalage im
 
 **Q8. Après ces contrôles, reste-t-il des anomalies qui mériteraient une investigation ?**
 Oui, quatre points **à vérifier** (ce ne sont pas des accusations) :
-1. **La part de bulletins nuls semble élevée.** Dans deux cas, les chiffres publiés impliquent environ 20 % de bulletins non valides (liste régionale de Casablanca-Settat : ≈ 1 013 500 votants pour ≈ 812 700 suffrages valides ; Tanger-Assilah : ≈ 22 %), contre environ 13,6 % au niveau national en 2021 selon la presse. Ces chiffres combinent des sources différentes et doivent être confirmés par les PV.
+1. **La part de bulletins nuls semble élevée.** Deux circonscriptions publient directement leurs chiffres : Skhirat-Témara, 17 465 bulletins annulés sur 84 734 votants (**20,6 %**) ; Agadir-Ida Outanane, 13 174 sur 76 442 (**17,2 %**). Deux autres cas les impliquent par calcul (liste régionale de Casablanca-Settat ≈ 19,8 % ; Tanger-Assilah ≈ 21,9 %). La presse donne environ 13,6 % au niveau national en 2021. Si les PV confirment ce niveau, il mériterait une analyse (vote nul de protestation ? complexité des deux bulletins ?). Détail : [`data/bulletins_nuls_2026.csv`](data/bulletins_nuls_2026.csv).
 2. **Les refus allégués de remettre des copies de PV** aux représentants des listes (PJD) et les observateurs empêchés d'accès (CNDH) : vérifiable en comparant les PV détenus par les partis aux résultats officiels, bureau par bureau.
 3. **Les affaires de Tanger et Marrakech** : suivre les décisions judiciaires.
-4. **Les revendications partisanes contredites par les résultats officiels** (66e siège de l'Istiqlal ; premières places annoncées par le PJD) : vérifiables sur les PV des commissions de recensement.
+4. **Les écarts entre annonces et résultats officiels** : 66e siège revendiqué par l'Istiqlal à Skhirat-Témara (où les sources se contredisent sur les élus) ; victoire annoncée sur Facebook par la tête de liste PJD à Azilal puis démentie ; premières places annoncées par le PJD ailleurs. Et un écart de **4 voix** entre le 2e et le 3e à Casablanca-Hay Hassani, qui peut décider d'un siège. Tout cela est vérifiable sur les PV des commissions de recensement.
 Avec les données par bureau, deux contrôles statistiques standard seraient possibles : la distribution conjointe participation / vote par parti (repérer des bureaux atypiques) et la cohérence des horaires de remontée des résultats.
 
 ---
@@ -382,6 +409,8 @@ La chaîne se trouve dans [`pipeline/`](pipeline/) ; les instructions sont dans 
 ## Annexe B — Principales sources
 
 Résultats et organisation : [Maroc.ma (provisoires)](https://maroc.ma/en/news/2026-legislative-elections-pam-leads-97-seats-according-preliminary-results-minister-interior) · [Maroc.ma (inscrits)](https://maroc.ma/fr/actualites/elections-de-septembre-2026-plus-de-15801-millions-dinscrits-sur-les-listes-electorales-dont-46-de) · [Le Matin (définitifs)](https://lematin.ma/nation/elections-2026-les-resultats-definitifs-confirment-le-pam-en-tete/367146) · [Hespress FR (définitifs)](https://fr.hespress.com/489985-elections-legislatives-2026-les-resultats-definitifs-confirment-les-resultats-provisoires.html) · [La Vie Éco (définitifs)](https://www.lavieeco.com/au-royaume/legislatives-2026-les-resultats-definitifs-correspondent-parfaitement-aux-donnees-provisoires/) · [Le360 (chiffres)](https://fr.le360.ma/politique/resultats-participation-organisation-les-legislatives-2026-en-chiffres_HWGQBAPS5NFNZAMNYFIAEX5XKM/) · [Médias24 (discours du ministre)](https://medias24.com/2026/09/24/discours-integral-dabdelouafi-laftit-lors-de-lannonce-des-resultats-des-legislatives-1764139/) · [LeSiteinfo (guide du vote)](https://www.lesiteinfo.com/maroc/682732-legislatives-2026-bulletins-sieges-quotient-electoral-le-guide-du-vote.html) · [Infomédiaire (mode de scrutin)](https://www.infomediaire.net/legislatives-mode-scrutin-repartition-sieges/)
+
+Circonscriptions ajoutées : [Hibapress (Meknès)](https://ar.hibapress.com/details-759851.html) · [Alakhbar (Agadir)](https://www.alakhbar.press.ma/4-%D8%A3%D8%AD%D8%B2%D8%A7%D8%A8-%D8%AA%D9%82%D8%AA%D8%B3%D9%85-%D9%85%D9%82%D8%A7%D8%B9%D8%AF-%D8%A5%D9%82%D9%84%D9%8A%D9%85-%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D8%B1-%D8%A5%D8%AF%D8%A7%D9%88%D8%AA%D9%86-299447.html) · [Alakhbar (Témara)](https://www.alakhbar.press.ma/%D8%A7%D9%83%D8%AA%D8%B3%D8%A7%D8%AD-%D8%A7%D9%84%D8%A8%D9%8A%D8%AC%D9%8A%D8%AF%D9%8A-%D8%A8%D8%AF%D8%A7%D8%A6%D8%B1%D8%A9-%D8%AA%D9%85%D8%A7%D8%B1%D8%A9-%D9%8A%D8%B1%D9%85%D9%8A-%D8%A8-299431.html) · [Alakhbar (Salé)](https://www.alakhbar.press.ma/%D9%86%D8%AA%D8%A7%D8%A6%D8%AC-%D8%A7%D9%86%D8%AA%D8%AE%D8%A7%D8%A8%D8%A7%D8%AA-%D8%B3%D9%84%D8%A7-%D8%AA%D8%B9%D9%8A%D8%AF-%D8%A7%D9%84%D8%A8%D9%8A%D8%AC%D9%8A%D8%AF%D9%8A-%D9%88-299428.html) · [Hespress (Kénitra)](https://www.hespress.com/%D8%A3%D8%B1%D8%A8%D8%B9%D8%A9-%D8%A3%D8%AD%D8%B2%D8%A7%D8%A8-%D8%AA%D8%AD%D8%B5%D8%AF-%D9%85%D9%82%D8%A7%D8%B9%D8%AF-%D8%A7%D9%84%D9%82%D9%86%D9%8A%D8%B7%D8%B1%D8%A9-1812844.html) · [Italiatelegraph (Oujda)](https://italiatelegraph.com/news-176704) · [Al3omk (Aïn Chock)](https://al3omk.com/1190639.html) · [Casaoui (Sidi Bernoussi)](https://casaoui.ma/1498067643.html) · [Al3omk (Chichaoua)](https://al3omk.com/1190663.html) · [Nichane Alane (Al Haouz)](https://www.nichanealane.ma/142645/) · [Akhbarona (Taroudant-Nord)](https://www.akhbarona.com/mobile/politic/432975.html) · [Al3omk (Azilal)](https://al3omk.com/1190571.html)
 
 Géographie et circonscriptions : [Belpresse](https://fr.belpresse.com/elections/legislatives-2026-entre-campagnes-et-metropoles-la-nouvelle-geographie-des-forces-politiques/) · [Le360 (Casa-Anfa)](https://fr.le360.ma/politique/legislatives-2026-les-resultats-du-vote-dans-la-circonscription-de-casa-anfa-le-pjd-en-tete_MDANM6PK4FATXI7WJQ6DJ7QQAE/) · [Tanja7 (Tanger-Assilah)](https://tanja7.com/192349/) · [Italiatelegraph (Tanger-Assilah)](https://italiatelegraph.com/news-176722) · [Maroc4 (Fès)](https://www.maroc4.ma/news-815516.html) · [La Tribune de Marrakech](https://latribunedemarrakech.com/legislatives-2026-marrakech/) · [Le Brief (Rabat-Océan)](https://www.lebrief.ma/rabat-locean-le-pam-en-tete-des-resultats-partiels-100167027/) · [Al3omk (Casablanca-Settat régional)](https://al3omk.com/1190473.html) · [Al3omk (Fès-Meknès régional)](https://al3omk.com/1190470.html) · [Médias24 (participation Casablanca-Settat)](https://medias24.com/2026/09/24/dans-la-circonscription-regionale-de-casablanca-settat-un-taux-de-participation-de-3460-resultats-provisoires-1763939/)
 

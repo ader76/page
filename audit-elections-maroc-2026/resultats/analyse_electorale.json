@@ -35,80 +35,80 @@
     {
       "parti_sigle": "MP",
       "sieges_2026": 29,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.07341772151898734,
       "sieges_par_circonscription": 0.27884615384615385
     },
     {
       "parti_sigle": "USFP",
       "sieges_2026": 26,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.06582278481012659,
       "sieges_par_circonscription": 0.25
     },
     {
       "parti_sigle": "PPS",
       "sieges_2026": 19,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.04810126582278481,
       "sieges_par_circonscription": 0.18269230769230768
     },
     {
       "parti_sigle": "UC",
       "sieges_2026": 17,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.043037974683544304,
       "sieges_par_circonscription": 0.16346153846153846
     },
     {
       "parti_sigle": "MDS",
       "sieges_2026": 8,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.020253164556962026,
       "sieges_par_circonscription": 0.07692307692307693
     },
     {
       "parti_sigle": "ALLIANCE_GAUCHE",
       "sieges_2026": 8,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.020253164556962026,
       "sieges_par_circonscription": 0.07692307692307693
     },
     {
       "parti_sigle": "FFD",
       "sieges_2026": 2,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.005063291139240506,
       "sieges_par_circonscription": 0.019230769230769232
     },
     {
       "parti_sigle": "INSAF",
       "sieges_2026": 2,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.005063291139240506,
       "sieges_par_circonscription": 0.019230769230769232
     },
     {
       "parti_sigle": "PND",
       "sieges_2026": 1,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.002531645569620253,
       "sieges_par_circonscription": 0.009615384615384616
     },
     {
       "parti_sigle": "PUD",
       "sieges_2026": 1,
-      "sieges_2021": NaN,
-      "variation": NaN,
+      "sieges_2021": null,
+      "variation": null,
       "part_sieges_2026": 0.002531645569620253,
       "sieges_par_circonscription": 0.009615384615384616
     }
@@ -226,7 +226,7 @@
       },
       {
         "parti": "PAM",
-        "voix": NaN,
+        "voix": null,
         "part_voix": 0.16649999999999998,
         "part_sieges": 0.2,
         "indice_conversion": 1.2012012012012014,
@@ -258,7 +258,7 @@
       },
       {
         "parti": "ALLIANCE_GAUCHE",
-        "voix": NaN,
+        "voix": null,
         "part_voix": 0.0453,
         "part_sieges": 0.0,
         "indice_conversion": 0.0,
@@ -266,7 +266,7 @@
       },
       {
         "parti": "USFP",
-        "voix": NaN,
+        "voix": null,
         "part_voix": 0.0397,
         "part_sieges": 0.0,
         "indice_conversion": 0.0,
@@ -274,7 +274,7 @@
       },
       {
         "parti": "PDI",
-        "voix": NaN,
+        "voix": null,
         "part_voix": 0.0279,
         "part_sieges": 0.0,
         "indice_conversion": 0.0,
@@ -282,7 +282,7 @@
       },
       {
         "parti": "UC",
-        "voix": NaN,
+        "voix": null,
         "part_voix": 0.0126,
         "part_sieges": 0.0,
         "indice_conversion": 0.0,
@@ -291,6 +291,246 @@
     ],
     "remarque": "parts de voix issues d'un dépouillement à ~90 % ; suffrages valides estimés = voix PJD / part PJD (approximation)"
   },
+  "tests_circonscriptions": {
+    "pjd_premier_urbain": "13/19",
+    "pjd_premier_rural": "0/7",
+    "p_fisher_pjd_premier": 0.005217391304347825,
+    "participation_urbain": [
+      25.09,
+      25.51,
+      25.9,
+      26.89,
+      33.15,
+      35.24
+    ],
+    "participation_rural_mixte": [
+      40.25,
+      44.57,
+      54.8
+    ],
+    "mann_whitney_U": 0.0,
+    "p_mann_whitney": 0.023809523809523808,
+    "avertissement": "échantillon non aléatoire (circonscriptions dont la presse a publié les résultats)"
+  },
+  "indices_conversion": [
+    {
+      "circonscription": "Tanger-Assilah",
+      "sieges": 5,
+      "parti": "PJD",
+      "part_voix": 0.31489999999999996,
+      "part_sieges": 0.2,
+      "indice": 0.6351222610352494
+    },
+    {
+      "circonscription": "Tanger-Assilah",
+      "sieges": 5,
+      "parti": "PAM",
+      "part_voix": 0.16649999999999998,
+      "part_sieges": 0.2,
+      "indice": 1.2012012012012014
+    },
+    {
+      "circonscription": "Tanger-Assilah",
+      "sieges": 5,
+      "parti": "MP",
+      "part_voix": 0.1461,
+      "part_sieges": 0.2,
+      "indice": 1.3689253935660506
+    },
+    {
+      "circonscription": "Tanger-Assilah",
+      "sieges": 5,
+      "parti": "PI",
+      "part_voix": 0.0942,
+      "part_sieges": 0.2,
+      "indice": 2.1231422505307855
+    },
+    {
+      "circonscription": "Tanger-Assilah",
+      "sieges": 5,
+      "parti": "RNI",
+      "part_voix": 0.0876,
+      "part_sieges": 0.2,
+      "indice": 2.2831050228310503
+    },
+    {
+      "circonscription": "Tanger-Assilah",
+      "sieges": 5,
+      "parti": "ALLIANCE_GAUCHE",
+      "part_voix": 0.0453,
+      "part_sieges": 0.0,
+      "indice": 0.0
+    },
+    {
+      "circonscription": "Tanger-Assilah",
+      "sieges": 5,
+      "parti": "USFP",
+      "part_voix": 0.0397,
+      "part_sieges": 0.0,
+      "indice": 0.0
+    },
+    {
+      "circonscription": "Tanger-Assilah",
+      "sieges": 5,
+      "parti": "PDI",
+      "part_voix": 0.0279,
+      "part_sieges": 0.0,
+      "indice": 0.0
+    },
+    {
+      "circonscription": "Tanger-Assilah",
+      "sieges": 5,
+      "parti": "UC",
+      "part_voix": 0.0126,
+      "part_sieges": 0.0,
+      "indice": 0.0
+    },
+    {
+      "circonscription": "Meknès",
+      "sieges": 6,
+      "parti": "PJD",
+      "part_voix": 0.191,
+      "part_sieges": 0.16666666666666666,
+      "indice": 0.8726003490401395
+    },
+    {
+      "circonscription": "Meknès",
+      "sieges": 6,
+      "parti": "MP",
+      "part_voix": 0.17120000000000002,
+      "part_sieges": 0.16666666666666666,
+      "indice": 0.9735202492211836
+    },
+    {
+      "circonscription": "Meknès",
+      "sieges": 6,
+      "parti": "UC",
+      "part_voix": 0.1512,
+      "part_sieges": 0.16666666666666666,
+      "indice": 1.1022927689594355
+    },
+    {
+      "circonscription": "Meknès",
+      "sieges": 6,
+      "parti": "PI",
+      "part_voix": 0.11019999999999999,
+      "part_sieges": 0.16666666666666666,
+      "indice": 1.5124016938898972
+    },
+    {
+      "circonscription": "Meknès",
+      "sieges": 6,
+      "parti": "PAM",
+      "part_voix": 0.1032,
+      "part_sieges": 0.16666666666666666,
+      "indice": 1.614987080103359
+    },
+    {
+      "circonscription": "Meknès",
+      "sieges": 6,
+      "parti": "RNI",
+      "part_voix": 0.0693,
+      "part_sieges": 0.16666666666666666,
+      "indice": 2.405002405002405
+    },
+    {
+      "circonscription": "Agadir-Ida Outanane",
+      "sieges": 4,
+      "parti": "PJD",
+      "part_voix": 0.23550000000000001,
+      "part_sieges": 0.25,
+      "indice": 1.0615711252653928
+    },
+    {
+      "circonscription": "Agadir-Ida Outanane",
+      "sieges": 4,
+      "parti": "RNI",
+      "part_voix": 0.17309999999999998,
+      "part_sieges": 0.25,
+      "indice": 1.4442518775274409
+    },
+    {
+      "circonscription": "Agadir-Ida Outanane",
+      "sieges": 4,
+      "parti": "PAM",
+      "part_voix": 0.16440000000000002,
+      "part_sieges": 0.25,
+      "indice": 1.5206812652068125
+    },
+    {
+      "circonscription": "Agadir-Ida Outanane",
+      "sieges": 4,
+      "parti": "USFP",
+      "part_voix": 0.1131,
+      "part_sieges": 0.25,
+      "indice": 2.2104332449160036
+    },
+    {
+      "circonscription": "Agadir-Ida Outanane",
+      "sieges": 4,
+      "parti": "PI",
+      "part_voix": 0.0946,
+      "part_sieges": 0.0,
+      "indice": 0.0
+    }
+  ],
+  "bulletins_nuls": [
+    {
+      "circonscription": "Skhirat-Témara",
+      "type_scrutin": "local",
+      "votants": 84734,
+      "suffrages_valides": 67269,
+      "bulletins_nuls": 17465,
+      "part_nuls_pct": 20.6,
+      "nature": "direct (chiffres publiés)",
+      "source": "https://www.alakhbar.press.ma/%D8%A7%D9%83%D8%AA%D8%B3%D8%A7%D8%AD-%D8%A7%D9%84%D8%A8%D9%8A%D8%AC%D9%8A%D8%AF%D9%8A-%D8%A8%D8%AF%D8%A7%D8%A6%D8%B1%D8%A9-%D8%AA%D9%85%D8%A7%D8%B1%D8%A9-%D9%8A%D8%B1%D9%85%D9%8A-%D8%A8-299431.html",
+      "remarque": "240 460 inscrits ; participation 35,24 %"
+    },
+    {
+      "circonscription": "Agadir-Ida Outanane",
+      "type_scrutin": "local",
+      "votants": 76442,
+      "suffrages_valides": 63268,
+      "bulletins_nuls": 13174,
+      "part_nuls_pct": 17.2,
+      "nature": "direct (chiffres publiés)",
+      "source": "https://a5r5br.net/morocco/local-news/8189826-",
+      "remarque": "284 543 inscrits ; participation 26,89 %"
+    },
+    {
+      "circonscription": "Casablanca-Settat (liste régionale)",
+      "type_scrutin": "regional",
+      "votants": 1013491,
+      "suffrages_valides": 812700,
+      "bulletins_nuls": 200791,
+      "part_nuls_pct": 19.8,
+      "nature": "dérivé (deux sources différentes)",
+      "source": "Médias24 (votants) ; Goud/Al3omk (voix et % du PAM)",
+      "remarque": "valides = 157 495 / 19,37 % ; résultats provisoires"
+    },
+    {
+      "circonscription": "Tanger-Assilah",
+      "type_scrutin": "local",
+      "votants": 105215,
+      "suffrages_valides": 82204,
+      "bulletins_nuls": 23011,
+      "part_nuls_pct": 21.9,
+      "nature": "dérivé (deux sources différentes)",
+      "source": "tanja7 / tanjalaan",
+      "remarque": "votants = 412 447 x 25,51 % ; valides = 25 886 / 31,49 % (dépouillement ~90 %)"
+    },
+    {
+      "circonscription": "National 2021 (rappel)",
+      "type_scrutin": "legislatif",
+      "votants": 8786000,
+      "suffrages_valides": 7588000,
+      "bulletins_nuls": 1198000,
+      "part_nuls_pct": 13.6,
+      "nature": "rappel presse (à vérifier)",
+      "source": "https://www.lebrief.ma/que-pesent-les-bulletins-invalides-dans-les-elections-100164893/",
+      "remarque": "chiffres attribués à 2021 (17,5 M d'inscrits)"
+    }
+  ],
   "tests_provinciaux": {
     "statut": "DONNEES_INSUFFISANTES",
     "manque": "voix par parti, participation, bénéficiaires ASD/RSU, pauvreté et urbanisation PAR PROVINCE (non publiés ou inaccessibles au 26/09/2026)"

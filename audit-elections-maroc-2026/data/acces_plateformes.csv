@@ -45,3 +45,16 @@ date_test_utc,cible,hote,methode,resultat,detail
 2026-09-26T05:01Z,Maroc.ma,maroc.ma,outil WebFetch,BLOQUE,"EGRESS_BLOCKED"
 2026-09-26T05:01Z,Reddit,www.reddit.com,outil WebFetch,BLOQUE,"unable to fetch"
 2026-09-26T05:00Z,Moteur de recherche,(outil WebSearch),outil WebSearch,OK,"titres + URL + resume genere a partir des pages ; pas d'acces au texte brut ni aux sections commentaires"
+2026-09-26T10:10Z,YouTube,www.youtube.com,curl via proxy conteneur (nouveau test),BLOQUE,"code HTTP 000 : aucune réponse du site, le tunnel via le proxy n'est pas établi"
+2026-09-26T10:10Z,Reddit,www.reddit.com/r/Morocco/new.json,curl via proxy conteneur (nouveau test),BLOQUE,"code HTTP 000 : aucune réponse du site, le tunnel via le proxy n'est pas établi"
+2026-09-26T10:10Z,Hespress,www.hespress.com,curl via proxy conteneur (nouveau test),BLOQUE,"code HTTP 000 : aucune réponse du site, le tunnel via le proxy n'est pas établi"
+2026-09-26T10:10Z,Facebook,www.facebook.com,curl via proxy conteneur (nouveau test),BLOQUE,"code HTTP 000 : aucune réponse du site, le tunnel via le proxy n'est pas établi"
+2026-09-26T10:10Z,TikTok,www.tiktok.com,curl via proxy conteneur (nouveau test),BLOQUE,"code HTTP 000 : aucune réponse du site, le tunnel via le proxy n'est pas établi"
+2026-09-26T10:10Z,X,x.com,curl via proxy conteneur (nouveau test),BLOQUE,"code HTTP 000 : aucune réponse du site, le tunnel via le proxy n'est pas établi"
+2026-09-26T10:10Z,Akhbarona,www.akhbarona.com,curl via proxy conteneur (nouveau test),BLOQUE,"code HTTP 000 : aucune réponse du site, le tunnel via le proxy n'est pas établi"
+2026-09-26T10:10Z,Le360,le360.ma,curl via proxy conteneur (nouveau test),BLOQUE,"code HTTP 000 : aucune réponse du site, le tunnel via le proxy n'est pas établi"
+2026-09-26T10:10Z,Wikipedia,en.wikipedia.org,curl via proxy conteneur (nouveau test),BLOQUE,"code HTTP 000 : aucune réponse du site, le tunnel via le proxy n'est pas établi"
+2026-09-26T10:20Z,YouTube,www.youtube.com,curl via proxy conteneur (nouveau test),BLOQUE,le proxy répond 403 à la demande de tunnel (CONNECT) ; même blocage qu'à 05:00
+2026-09-26T10:20Z,Hespress,www.hespress.com,curl via proxy conteneur (nouveau test),BLOQUE,le proxy répond 403 à la demande de tunnel (CONNECT) ; même blocage qu'à 05:00
+2026-09-26T10:20Z,Reddit,www.reddit.com,curl via proxy conteneur (nouveau test),BLOQUE,le proxy répond 403 à la demande de tunnel (CONNECT) ; même blocage qu'à 05:00
+2026-09-26T10:20Z,Facebook,www.facebook.com,curl via proxy conteneur (nouveau test),BLOQUE,le proxy répond 403 à la demande de tunnel (CONNECT) ; même blocage qu'à 05:00

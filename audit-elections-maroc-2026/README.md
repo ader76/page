@@ -7,7 +7,7 @@ Rapport principal : **[RAPPORT.md](RAPPORT.md)**.
 | Volet | État |
 |---|---|
 | Résultats officiels, participation, mode de scrutin | fait, sourcé (`data/`) |
-| Répartition urbain/rural, quotient, indice de conversion | fait (`resultats/`) |
+| Répartition urbain/rural, quotient, indice de conversion, 33 circonscriptions documentées, bulletins nuls | fait (`resultats/`) |
 | Allégations d'irrégularités (A à G), observateurs | fait (`data/allegations_irregularites.csv`, `data/observateurs.csv`) |
 | Collecte des commentaires en ligne | **non réalisée** : accès réseau bloqué par l'environnement (`data/acces_plateformes.csv`) |
 | Nettoyage, coordination, classification, validation | code prêt et testé, **jamais exécuté sur des données réelles** |
@@ -33,7 +33,7 @@ pipeline/                   chaîne de collecte et d'analyse
   validate.py               échantillon >= 500 et taux d'erreur
   analyze_opinion.py        trois lectures (commentaires, comptes, plateformes)
   analyze_elections.py      tests électoraux et figures
-  tests/                    25 tests (jeux synthétiques générés à la volée)
+  tests/                    26 tests (jeux synthétiques générés à la volée + données publiées de data/)
 ```
 
 ## Relancer
@@ -41,7 +41,7 @@ pipeline/                   chaîne de collecte et d'analyse
 ```bash
 pip install -r requirements.txt
 cd pipeline
-python -m pytest -q tests/                          # 25 tests
+python -m pytest -q tests/                          # 26 tests
 python analyze_elections.py ../data ../resultats     # analyses électorales + figures
 ```
 

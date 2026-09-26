@@ -6,16 +6,23 @@ Ce qui est calculé :
      parti un test exact de Fisher (parti vs reste des partis) ;
   3. mécanique du quotient électoral (inscrits / sièges) : part minimale des suffrages
      valides pour obtenir un siège au quotient = 1 / (S x participation x (1 - nuls)) ;
-  4. indice de conversion (part des sièges / part des voix) dans la circonscription où la
-     distribution des voix est publiée (Tanger-Assilah) ;
-  5. tests participation <-> performance et ASD <-> vote : exécutés seulement si les
+  4. indice de conversion (part des sièges / part des voix) dans les circonscriptions où la
+     distribution des voix est publiée (Tanger-Assilah, Meknès, Agadir-Ida Outanane) ;
+  5. circonscriptions documentées (échantillon non aléatoire) : PJD premier en ville vs en
+     milieu rural (Fisher exact), participation urbaine vs rurale ou mixte (Mann-Whitney exact),
+     et part des bulletins nuls là où elle est publiée ou calculable ;
+  6. tests participation <-> performance et ASD <-> vote : exécutés seulement si les
      données provinciales existent (data/provinces.csv), sinon « DONNÉES INSUFFISANTES ».
+
+Les valeurs manquantes sont écrites « null » dans le JSON (jamais NaN, refusé par la plupart
+des lecteurs JSON).
 
 Usage : python analyze_elections.py ../data ../resultats
 """
 from __future__ import annotations
 
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -117,6 +124,51 @@ def tanger_assilah(data: Path) -> dict:
         "remarque": ("parts de voix issues d'un dépouillement à ~90 % ; suffrages valides estimés = "
                      "voix PJD / part PJD (approximation)"),
     }
+
+
+def constituency_tests(data: Path) -> dict:
+    """Échantillon de circonscriptions documentées (NON aléatoire : dépend de la presse).
+
+    - le PJD arrive-t-il plus souvent premier en ville qu'en milieu rural ? (Fisher exact)
+    - la participation diffère-t-elle entre circonscriptions urbaines et rurales/mixtes ? (Mann-Whitney exact)
+    """
+    df = pd.read_csv(data / "premier_par_circonscription.csv")
+    urb, rur = df[df["milieu"] == "urbain"], df[df["milieu"] == "rural"]
+    ku, kr = int(urb["pjd_premier"].sum()), int(rur["pjd_premier"].sum())
+    odds, p_first = stats.fisher_exact([[ku, len(urb) - ku], [kr, len(rur) - kr]])
+    tu = urb["participation_pct"].dropna().astype(float)
+    tr = df[df["milieu"] != "urbain"]["participation_pct"].dropna().astype(float)
+    mw = stats.mannwhitneyu(tu, tr, alternative="two-sided", method="exact")
+    return {
+        "pjd_premier_urbain": f"{ku}/{len(urb)}", "pjd_premier_rural": f"{kr}/{len(rur)}",
+        "p_fisher_pjd_premier": float(p_first),
+        "participation_urbain": sorted(tu.tolist()), "participation_rural_mixte": sorted(tr.tolist()),
+        "mann_whitney_U": float(mw.statistic), "p_mann_whitney": float(mw.pvalue),
+        "avertissement": "échantillon non aléatoire (circonscriptions dont la presse a publié les résultats)",
+    }
+
+
+def conversion_indices(data: Path) -> list[dict]:
+    """Indice de conversion (part des sièges / part des voix) là où la distribution est publiée."""
+    c = pd.read_csv(data / "circonscriptions_2026_echantillon.csv")
+    out = []
+    for circ in ["Tanger-Assilah", "Meknès", "Agadir-Ida Outanane"]:
+        t = c[(c["circonscription"] == circ) & c["pct_publie"].notna()].copy()
+        seats = int(t["sieges"].iloc[0])
+        for _, r in t.iterrows():
+            try:
+                share = float(r["pct_publie"]) / 100
+            except ValueError:
+                continue
+            elected = str(r["elu"]).startswith("oui")
+            out.append({"circonscription": circ, "sieges": seats, "parti": r["parti"],
+                        "part_voix": share, "part_sieges": (1 / seats) if elected else 0.0,
+                        "indice": ((1 / seats) / share) if elected else 0.0})
+    return out
+
+
+def invalid_ballots(data: Path) -> list[dict]:
+    return pd.read_csv(data / "bulletins_nuls_2026.csv").to_dict("records")
 
 
 def provincial_tests(data: Path) -> dict:
@@ -242,6 +294,44 @@ def fig_tanger(ta: dict, path: Path) -> None:
     _save(fig, path)
 
 
+def fig_turnout(data: Path, path: Path) -> None:
+    df = pd.read_csv(data / "premier_par_circonscription.csv").dropna(subset=["participation_pct"])
+    df = df.sort_values("participation_pct")
+    fig, ax = plt.subplots(figsize=(7.2, 3.6))
+    y = np.arange(len(df))
+    colors = [BLUE if m == "urbain" else ORANGE for m in df["milieu"]]
+    ax.scatter(df["participation_pct"], y, s=80, color=colors, edgecolor=SURFACE, linewidth=2, zorder=3)
+    for yi, (_, r) in zip(y, df.iterrows()):
+        # valeur telle que publiée (sans arrondi supplémentaire)
+        ax.text(r["participation_pct"] + 1.2, yi, f"{r['participation_pct']:g} %".replace(".", ","),
+                va="center", color=INK2, fontsize=8)
+    ax.axvline(38.02, color=BASELINE, lw=1, zorder=1)
+    ax.text(38.6, len(df) - 0.75, "national 38,0 %", color=MUTED, fontsize=8)
+    ax.set_yticks(y, df["circonscription"])
+    ax.set_xlim(0, 65)
+    ax.set_ylim(-0.6, len(df) - 0.3)
+    ax.xaxis.grid(True, color=GRID, lw=1)
+    ax.set_axisbelow(True)
+    ax.set_xlabel("participation (% des inscrits)", color=MUTED, fontsize=9)
+    ax.scatter([], [], s=60, color=BLUE, label="urbain")
+    ax.scatter([], [], s=60, color=ORANGE, label="rural ou mixte")
+    ax.legend(loc="lower right", frameon=False, fontsize=9, labelcolor=INK2)
+    _style(ax, "Participation dans les circonscriptions documentées",
+           "Échantillon non aléatoire : circonscriptions dont la presse a publié la participation")
+    _save(fig, path)
+
+
+def _json_safe(x):
+    """Remplace les NaN (valeurs manquantes) par None, pour produire un JSON standard."""
+    if isinstance(x, dict):
+        return {k: _json_safe(v) for k, v in x.items()}
+    if isinstance(x, (list, tuple)):
+        return [_json_safe(v) for v in x]
+    if isinstance(x, float) and math.isnan(x):
+        return None
+    return x
+
+
 def main(data_dir: str, out_dir: str) -> dict:
     data, out = Path(data_dir), Path(out_dir)
     (out / "figures").mkdir(parents=True, exist_ok=True)
@@ -256,6 +346,9 @@ def main(data_dir: str, out_dir: str) -> dict:
         "urbain_rural": ur,
         "seuils_quotient_pct_suffrages_valides": thresholds,
         "tanger_assilah": ta,
+        "tests_circonscriptions": constituency_tests(data),
+        "indices_conversion": conversion_indices(data),
+        "bulletins_nuls": invalid_ballots(data),
         "tests_provinciaux": provincial_tests(data),
         "voix_nationales": "NON PUBLIEES au 26/09/2026 : voix/siège et indice de conversion national non calculables",
     }
@@ -263,11 +356,13 @@ def main(data_dir: str, out_dir: str) -> dict:
     fig_urban(ur, out / "figures" / "02_sieges_urbains_par_parti.png")
     fig_threshold(out / "figures" / "03_seuil_quotient.png")
     fig_tanger(ta, out / "figures" / "04_tanger_assilah_voix_sieges.png")
-    (out / "analyse_electorale.json").write_text(json.dumps(res, ensure_ascii=False, indent=2, default=float),
-                                                 encoding="utf-8")
+    fig_turnout(data, out / "figures" / "05_participation_circonscriptions.png")
+    text = json.dumps(_json_safe(res), ensure_ascii=False, indent=2, default=float, allow_nan=False)
+    (out / "analyse_electorale.json").write_text(text, encoding="utf-8")
     return res
 
 
 if __name__ == "__main__":
     r = main(sys.argv[1], sys.argv[2])
-    print(json.dumps({k: r[k] for k in ("urbain_rural", "tests_provinciaux")}, ensure_ascii=False, indent=1, default=float)[:3000])
+    print(json.dumps({k: r[k] for k in ("tests_circonscriptions", "indices_conversion", "tests_provinciaux")},
+                     ensure_ascii=False, indent=1, default=float)[:4000])
