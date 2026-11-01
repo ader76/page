@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var T = window.I18N, LANGS = ['fr', 'en', 'ar'];
+  var T = window.I18N, LANGS = ['fr', 'en', 'zh', 'ar'];
   var cur = 'fr';
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -28,7 +28,7 @@
     $$('#galleryGrid .g').forEach(function (b) { b.setAttribute('aria-label', t('g.' + b.dataset.k)); $('img', b).alt = t('g.' + b.dataset.k); });
     $$('.proj').forEach(function (p) { $('img', p).alt = $('h3', p).textContent; });
     $$('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === l); });
-    $('#ytBtn').setAttribute('aria-label', t('vid.yt'));
+    $$('.pdf-link').forEach(function (a) { a.href = 'assets/docs/brochure-' + l + '.pdf'; });
     var wa = 'https://wa.me/212661247505?text=' + encodeURIComponent(t('con.wamsg'));
     $('#waBtn').href = wa; $('#waFloat').href = wa;
     syncSound();
@@ -60,17 +60,6 @@
       es.forEach(function (e) { if (e.isIntersecting) { film.play().catch(function () {}); } else { film.pause(); } });
     }, { threshold: .25 }).observe(film);
   }
-
-  /* YouTube: load only on click */
-  $('#ytBtn').addEventListener('click', function () {
-    var box = $('#yt'), f = document.createElement('iframe');
-    f.src = 'https://www.youtube-nocookie.com/embed/' + box.dataset.id + '?autoplay=1&rel=0';
-    f.title = t('vid.ytTitle');
-    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-    f.allowFullscreen = true;
-    box.replaceChildren(f);
-    film.pause();
-  });
 
   /* lightbox */
   var lb = $('#lb'), lbImg = $('#lbImg'), lbCap = $('#lbCap');
