@@ -9,7 +9,7 @@
 
 [[redirects]]
   from = "/images.html"
-  to = "/#gallery"
+  to = "/#dossier"
   status = 301
 
 [[headers]]
