@@ -91,8 +91,6 @@ li:before{content:"";position:absolute;inset-inline-start:0;top:.7em;width:7px;h
 <div class="eb" style="margin-top:9mm">${t('proj.eyebrow')}</div>
 <div class="pj">${[['bureaux','1'],['hotel','2'],['clinique','3'],['restaurant','4']].map(([f,n])=>`<div><img src="${img(f+'.webp')}"><h3>${t('proj.'+n+'.t')}</h3><p>${t('proj.'+n+'.d')}</p></div>`).join('')}</div>
 <p style="font-size:7pt;color:#7f9a8e;margin-top:4px">${t('proj.note')}</p>
-<div class="ct"><div><div class="eb" style="margin:0">${t('con.title')}</div><span>${t('con.intro')}</span></div>
-<div><span>${t('con.phone')}</span><b>+212 661 247 505</b><span>${t('con.mail')}</span><b style="font-size:10pt">reda.bouaamri@gmail.com</b></div></div>
 <div class="ft"><span>© ${new Date().getFullYear()} Souissi · ${t('foot.rights')}</span><span>3</span></div></div>
 </body></html>`;
 };

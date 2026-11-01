@@ -29,8 +29,6 @@
     $$('.proj').forEach(function (p) { $('img', p).alt = $('h3', p).textContent; });
     $$('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === l); });
     $$('.pdf-link').forEach(function (a) { a.href = 'assets/docs/brochure-' + l + '.pdf'; });
-    var wa = 'https://wa.me/212661247505?text=' + encodeURIComponent(t('con.wamsg'));
-    $('#waBtn').href = wa; $('#waFloat').href = wa;
     syncSound();
   }
 

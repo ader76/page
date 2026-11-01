@@ -2,7 +2,7 @@
 """Génère public/index.html (multilingue FR/EN/ZH/AR) à partir du fichier
 SOUMAYA 7 d'origine, sans modifier son design ni ses médias intégrés.
 
-Usage : python3 -I tools/build_soumaya.py public/dossier-confidentiel.html public/index.html
+Usage : python3 -I tools/build_soumaya.py source/SOUMAYA_7_Dossier_Confidentiel.html public/index.html
 """
 import json
 import sys
@@ -21,7 +21,7 @@ T = {
              "已登记产权的 1,515 平方米城市地块,临 Mehdi Ben Barka 大道,规划为 A 区 A5 分区,正对未来的洲际酒店。",
              "قطعة أرضية حضرية محفّظة مساحتها 1515 م² تطل على شارع المهدي بن بركة، مصنّفة في المنطقة A، القطاع A5، قبالة فندق إنتركونتيننتال المستقبلي."],
     "cta.video": ["Voir la vidéo", "Watch the video", "观看视频", "شاهد الفيديو"],
-    "cta.pages": ["Consulter les 11 pages", "View the 11 pages", "查看 11 页资料", "تصفّح الصفحات الـ11"],
+    "cta.pages": ["Consulter les 10 pages", "View the 10 pages", "查看 10 页资料", "تصفّح الصفحات العشر"],
     "micro.1": ["Lecture hors ligne", "Offline reading", "支持离线阅读", "قراءة دون اتصال"],
     "micro.2": ["Vidéo intégrée", "Built-in video", "内嵌视频", "فيديو مدمج"],
     "micro.3": ["Dossier complet", "Complete dossier", "完整资料", "ملف كامل"],
@@ -39,14 +39,14 @@ T = {
     "st.4": ["Prix de présentation", "Asking price", "报价", "السعر المعروض"],
     "st.4v": ["24 M MAD", "MAD 24 M", "2,400 万迪拉姆", "24 مليون درهم"],
     "dos.h": ["Dossier acheteur", "Buyer dossier", "买方资料", "ملف المشتري"],
-    "dos.p": ["Les onze pages du document sont directement intégrées ci-dessous. Elles restent visibles même lorsque l’ouverture du PDF est limitée par le téléphone.",
-              "The eleven pages of the document are embedded below (in French). They remain visible even when the phone restricts opening the PDF.",
-              "以下直接展示文件的十一页内容(法文版)。即使手机限制打开 PDF,也可正常查看。",
-              "الصفحات الإحدى عشرة من الوثيقة مدمجة أدناه (باللغة الفرنسية). وتبقى ظاهرة حتى عندما يقيّد الهاتف فتح ملف PDF."],
+    "dos.p": ["Les dix pages du document sont directement intégrées ci-dessous. Elles restent visibles même lorsque l’ouverture du PDF est limitée par le téléphone.",
+              "The ten pages of the document are embedded below (in French). They remain visible even when the phone restricts opening the PDF.",
+              "以下直接展示文件的十页内容(法文版)。即使手机限制打开 PDF,也可正常查看。",
+              "الصفحات العشر من الوثيقة مدمجة أدناه (باللغة الفرنسية). وتبقى ظاهرة حتى عندما يقيّد الهاتف فتح ملف PDF."],
     "dos.ref": ["Soumaya 7 · Référence SV7-2026", "Soumaya 7 · Reference SV7-2026", "Soumaya 7 · 编号 SV7-2026", "Soumaya 7 · المرجع SV7-2026"],
     "dos.note": ["Document autonome · aucune connexion Internet nécessaire", "Standalone document · no Internet connection required", "独立文件 · 无需联网", "وثيقة مستقلة · لا حاجة للاتصال بالإنترنت"],
     "dos.btn": ["Ouvrir / enregistrer le PDF", "Open / save the PDF", "打开 / 保存 PDF", "فتح / حفظ ملف PDF"],
-    "page": ["Page {n} / 11", "Page {n} / 11", "第 {n} / 11 页", "الصفحة {n} / 11"],
+    "page": ["Page {n} / 10", "Page {n} / 10", "第 {n} / 10 页", "الصفحة {n} / 10"],
     "gal.h": ["La villa en images", "The villa in pictures", "别墅实景", "الفيلا بالصور"],
     "gal.p": ["Photographies actuelles de la propriété : façade, entrée, salons et jardin arboré.", "Current photographs of the property: façade, entrance, reception rooms and landscaped garden.", "物业现状实拍:外立面、入口、客厅及园林花园。", "صور حالية للعقار: الواجهة والمدخل والصالونات والحديقة المشجّرة."],
     "gal.close": ["Fermer", "Close", "关闭", "إغلاق"],
@@ -59,11 +59,6 @@ T = {
     "g.jardin": ["Jardin arboré", "Landscaped garden", "园林花园", "الحديقة المشجّرة"],
     "g.haie": ["Jardin et clôture sur rue", "Garden and street-side fence", "花园与临街围墙", "الحديقة والسياج المطل على الشارع"],
     "g.avenue": ["Avenue Mehdi Ben Barka", "Avenue Mehdi Ben Barka", "Mehdi Ben Barka 大道", "شارع المهدي بن بركة"],
-    "con.h": ["Visite et échange confidentiel", "Confidential visit and discussion", "预约参观与保密洽谈", "زيارة ونقاش سري"],
-    "con.p": ["Le dossier juridique et urbanistique peut être communiqué aux acquéreurs qualifiés. Visites uniquement sur rendez-vous.",
-              "The legal and planning file can be shared with qualified buyers. Viewings by appointment only.",
-              "法律及城市规划资料可提供给合格买家。仅限预约参观。",
-              "يمكن تقديم الملف القانوني والتعميري للمشترين المؤهلين. الزيارات بموعد مسبق فقط."],
     "foot": ["SOUMAYA 7 · Dossier d’investissement strictement confidentiel · Juin 2026", "SOUMAYA 7 · Strictly confidential investment dossier · June 2026", "SOUMAYA 7 · 严格保密投资资料 · 2026 年 6 月", "SOUMAYA 7 · ملف استثماري سري للغاية · يونيو 2026"],
     "pdf.alert": ["Le PDF est déjà visible page par page dans cette présentation.", "The PDF is already shown page by page in this presentation.", "PDF 已在本页面逐页展示。", "ملف PDF معروض بالفعل صفحةً صفحة في هذا العرض."],
     "lang": ["Langue", "Language", "语言", "اللغة"],
@@ -240,66 +235,92 @@ sub("</body>", """<script>
 </script>
 </body>""")
 
-# --- Pages du dossier : la page 10 (titre seul) est fusionnée avec le plan de la page 11 ---
+# --- Pages du dossier : retouches à partir des images d'origine ---
+#  * coordonnées personnelles retirées (page 1 : ligne « Contact direct » ; page 9 : ligne « Contact »)
+#  * page 6 (une seule ligne) fusionnée en bas de la page 5
+#  * page 10 (titre seul) fusionnée avec le plan de la page 11
+#  * pieds de page « Page N » effacés (la numérotation change)
+#  * le PDF est reconstruit à partir de ces pages (aucun texte caché ne subsiste)
 import base64, io, re
-from PIL import Image, ImageDraw
+from PIL import Image
 
-def page_img(n):
-    m = re.search(r'<article class="pdf-page" id="page-%d">\s*<div class="page-label"[^>]*>[^<]*</div>\s*<img src="data:image/webp;base64,([^"]+)"' % n, html)
-    return Image.open(io.BytesIO(base64.b64decode(m.group(1)))).convert("RGB"), m.group(1)
+pages = {}
+for m in re.finditer(r'<article class="pdf-page" id="page-(\d+)">\s*<div class="page-label"[^>]*>[^<]*</div>\s*<img src="data:image/webp;base64,([^"]+)"', html):
+    pages[int(m.group(1))] = Image.open(io.BytesIO(base64.b64decode(m.group(2)))).convert("RGB")
+assert sorted(pages) == list(range(1, 13))
+W, H = pages[1].size
+FOOT = (1675, 1715)   # bande du pied de page
+
+
+def blank():
+    return Image.new("RGB", (W, H), "white")
+
+
+def clear_footer(im):
+    im.paste((255, 255, 255), (0, FOOT[0], W, FOOT[1]))
+    return im
+
+
+def remove_band(im, y0, y1):
+    """Supprime les lignes y0..y1 et remonte le contenu situé dessous."""
+    out = blank()
+    out.paste(im.crop((0, 0, W, y0)), (0, 0))
+    out.paste(im.crop((0, y1, W, FOOT[0])), (0, y0))
+    return out
+
+
+def stack(parts, top, bottom, gap):
+    """Empile des bandes d'images (réduites si besoin) sur une page blanche."""
+    total = sum(p.height for p in parts) + gap * (len(parts) - 1)
+    sc = min(1, (bottom - top) / total)
+    out = blank()
+    y = top
+    for part in parts:
+        if sc < 1:
+            part = part.resize((int(W * sc), int(part.height * sc)), Image.LANCZOS)
+        out.paste(part, ((W - part.width) // 2, y))
+        y += part.height + int(gap * sc)
+    return out
+
+
+p1 = remove_band(pages[1], 1108, 1167)   # ligne de contact + site web
+p9 = remove_band(pages[9], 609, 686)     # ligne « Contact » du tableau
+p5 = stack([pages[5].crop((0, 120, W, 1640)), pages[6].crop((0, 122, W, 210))], top=120, bottom=1665, gap=10)
+p10 = stack([pages[10].crop((0, 160, W, 275)), pages[11].crop((0, 120, W, 1615))], top=160, bottom=1665, gap=28)
+
+final = [p1, pages[2], pages[3], pages[4], p5, pages[7], pages[8], p9, p10, pages[12]]
+final = [clear_footer(im.copy()) for im in final]
+N = len(final)
+
 
 def enc(im):
-    b = io.BytesIO(); im.save(b, "WEBP", quality=88, method=6); return base64.b64encode(b.getvalue()).decode()
+    b = io.BytesIO()
+    im.save(b, "WEBP", quality=88, method=6)
+    return base64.b64encode(b.getvalue()).decode()
 
-p10, b10 = page_img(10); p11, b11 = page_img(11); p12, b12 = page_img(12)
-W, H = p10.size
-new = Image.new("RGB", (W, H), "white")
-new.paste(p10.crop((0, 0, W, 300)), (0, 0))                    # titre « Annexe 1 »
-content = p11.crop((0, 120, W, 1615))                           # plan + légende de la page 11
-avail = 1660 - 310
-sc = min(1, avail / content.height)
-content = content.resize((int(W * sc), int(content.height * sc)), Image.LANCZOS)
-new.paste(content, ((W - content.width) // 2, 310))
-new.paste(p10.crop((0, 1660, W, H)), (0, 1660))                 # pied de page « Page 10 »
-html = html.replace(b10, enc(new), 1)
 
-# page 12 devient la page 11 : pied de page « Page 12 » effacé
-d = ImageDraw.Draw(p12); d.rectangle((0, 1675, W, 1715), fill="white")
-html = html.replace(b12, enc(p12), 1)
-
-html, n = re.subn(r'<article class="pdf-page" id="page-11">.*?</article>\s*', '', html, count=1, flags=re.S)
+arts = []
+for i, im in enumerate(final, 1):
+    load = "eager" if i <= 2 else "lazy"
+    arts.append(
+        '<article class="pdf-page" id="page-%d">\n'
+        '      <div class="page-label" data-i18n-page="%d">Page %d / %d</div>\n'
+        '      <img src="data:image/webp;base64,%s" alt="Dossier acheteur Soumaya 7, page %d" loading="%s" decoding="async">\n'
+        '    </article>' % (i, i, i, N, enc(im), i, load))
+html, n = re.subn(r'<div class="pages">.*?</article></div>', lambda _: '<div class="pages">' + "\n".join(arts) + '</div>', html, count=1, flags=re.S)
 assert n == 1
-html = html.replace('id="page-12"', 'id="page-11"').replace('data-i18n-page="12">Page 12 / 12', 'data-i18n-page="11">Page 11 / 11')
-html = re.sub(r'(data-i18n-page="\d+">Page \d+) / 12', r'\1 / 11', html)
 
-# --- PDF intégré : même correction (page 10 = titre + plan, ancienne page 11 supprimée) ---
-from pypdf import PdfReader, PdfWriter, Transformation
-from pypdf.generic import ContentStream, NameObject, ArrayObject
-
+# PDF reconstruit à partir des pages retouchées
+buf = io.BytesIO()
+final[0].save(buf, "PDF", save_all=True, append_images=final[1:], resolution=150.0, quality=85)
 m = re.search(r'<script id="pdf-b64" type="text/plain">([^<]+)</script>', html)
-reader = PdfReader(io.BytesIO(base64.b64decode(m.group(1).strip())))
-writer = PdfWriter(clone_from=reader)
-pg10, pg11, pg12 = writer.pages[9], writer.pages[10], writer.pages[11]
-# Plan de la page 11 (zone y 66.7 → 784.3 pt) réduit sous le titre de la page 10 (zone y 45 → 693 pt)
-scale = 0.903
-x_off = 595.276 * (1 - scale) / 2
-pg10.merge_transformed_page(pg11, Transformation().translate(0, -66.7).scale(scale, scale).translate(x_off, 45.1))
-
-def white_rect(page, y0, y1):
-    rect = ContentStream(None, writer)
-    rect.set_data(b"q 1 1 1 rg 0 %.1f 595.3 %.1f re f Q" % (y0, y1 - y0))
-    ref = writer._add_object(rect)
-    contents = page.get_contents()
-    # q … Q autour du contenu d'origine pour repartir d'un repère de page propre
-    q = ContentStream(None, writer); q.set_data(b"q")
-    Q = ContentStream(None, writer); Q.set_data(b"Q")
-    page[NameObject("/Contents")] = ArrayObject([writer._add_object(q), writer._add_object(contents), writer._add_object(Q), ref])
-
-white_rect(pg10, 0, 20)      # pied de page de l'ancienne page 11 (réduit)
-white_rect(pg12, 20, 36)     # pied de page « Page 12 » effacé (devient la page 11)
-writer.remove_page(10)
-buf = io.BytesIO(); writer.write(buf)
 html = html.replace(m.group(1), base64.b64encode(buf.getvalue()).decode(), 1)
+
+# --- Aucune coordonnée personnelle sur la page : section contact supprimée ---
+html, n = re.subn(r'\s*<section class="contact" id="contact">.*?</section>', '', html, count=1, flags=re.S)
+assert n == 1
+for bad in ("reda.bouaamri", "661 247", "661247", "souissivilla.pro", "mailto:", "tel:"):
+    assert bad not in html, bad
 
 open(DST, "w", encoding="utf-8").write(html)
 print("OK", DST, len(html))

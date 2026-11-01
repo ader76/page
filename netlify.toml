@@ -4,7 +4,7 @@
 # Anciennes adresses de l'ancien site
 [[redirects]]
   from = "/contact.html"
-  to = "/#contact"
+  to = "/"
   status = 301
 
 [[redirects]]
@@ -12,10 +12,16 @@
   to = "/#dossier"
   status = 301
 
-[[headers]]
-  for = "/dossier-confidentiel.html"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow, noarchive"
+# L'ancien fichier source n'est plus publié : on renvoie vers la page d'accueil
+[[redirects]]
+  from = "/dossier-confidentiel.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/dossier-confidentiel"
+  to = "/"
+  status = 301
 
 [[headers]]
   for = "/assets/*"
