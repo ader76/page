@@ -21,7 +21,7 @@ T = {
              "已登记产权的 1,515 平方米城市地块,临 Mehdi Ben Barka 大道,规划为 A 区 A5 分区,正对未来的洲际酒店。",
              "قطعة أرضية حضرية محفّظة مساحتها 1515 م² تطل على شارع المهدي بن بركة، مصنّفة في المنطقة A، القطاع A5، قبالة فندق إنتركونتيننتال المستقبلي."],
     "cta.video": ["Voir la vidéo", "Watch the video", "观看视频", "شاهد الفيديو"],
-    "cta.pages": ["Consulter les 12 pages", "View the 12 pages", "查看 12 页资料", "تصفّح الصفحات الـ12"],
+    "cta.pages": ["Consulter les 11 pages", "View the 11 pages", "查看 11 页资料", "تصفّح الصفحات الـ11"],
     "micro.1": ["Lecture hors ligne", "Offline reading", "支持离线阅读", "قراءة دون اتصال"],
     "micro.2": ["Vidéo intégrée", "Built-in video", "内嵌视频", "فيديو مدمج"],
     "micro.3": ["Dossier complet", "Complete dossier", "完整资料", "ملف كامل"],
@@ -39,14 +39,26 @@ T = {
     "st.4": ["Prix de présentation", "Asking price", "报价", "السعر المعروض"],
     "st.4v": ["24 M MAD", "MAD 24 M", "2,400 万迪拉姆", "24 مليون درهم"],
     "dos.h": ["Dossier acheteur", "Buyer dossier", "买方资料", "ملف المشتري"],
-    "dos.p": ["Les douze pages du document sont directement intégrées ci-dessous. Elles restent visibles même lorsque l’ouverture du PDF est limitée par le téléphone.",
-              "The twelve pages of the document are embedded below (in French). They remain visible even when the phone restricts opening the PDF.",
-              "以下直接展示文件的十二页内容(法文版)。即使手机限制打开 PDF,也可正常查看。",
-              "الصفحات الاثنتا عشرة من الوثيقة مدمجة أدناه (باللغة الفرنسية). وتبقى ظاهرة حتى عندما يقيّد الهاتف فتح ملف PDF."],
+    "dos.p": ["Les onze pages du document sont directement intégrées ci-dessous. Elles restent visibles même lorsque l’ouverture du PDF est limitée par le téléphone.",
+              "The eleven pages of the document are embedded below (in French). They remain visible even when the phone restricts opening the PDF.",
+              "以下直接展示文件的十一页内容(法文版)。即使手机限制打开 PDF,也可正常查看。",
+              "الصفحات الإحدى عشرة من الوثيقة مدمجة أدناه (باللغة الفرنسية). وتبقى ظاهرة حتى عندما يقيّد الهاتف فتح ملف PDF."],
     "dos.ref": ["Soumaya 7 · Référence SV7-2026", "Soumaya 7 · Reference SV7-2026", "Soumaya 7 · 编号 SV7-2026", "Soumaya 7 · المرجع SV7-2026"],
     "dos.note": ["Document autonome · aucune connexion Internet nécessaire", "Standalone document · no Internet connection required", "独立文件 · 无需联网", "وثيقة مستقلة · لا حاجة للاتصال بالإنترنت"],
     "dos.btn": ["Ouvrir / enregistrer le PDF", "Open / save the PDF", "打开 / 保存 PDF", "فتح / حفظ ملف PDF"],
-    "page": ["Page {n} / 12", "Page {n} / 12", "第 {n} / 12 页", "الصفحة {n} / 12"],
+    "page": ["Page {n} / 11", "Page {n} / 11", "第 {n} / 11 页", "الصفحة {n} / 11"],
+    "gal.h": ["La villa en images", "The villa in pictures", "别墅实景", "الفيلا بالصور"],
+    "gal.p": ["Photographies actuelles de la propriété : façade, entrée, salons et jardin arboré.", "Current photographs of the property: façade, entrance, reception rooms and landscaped garden.", "物业现状实拍:外立面、入口、客厅及园林花园。", "صور حالية للعقار: الواجهة والمدخل والصالونات والحديقة المشجّرة."],
+    "gal.close": ["Fermer", "Close", "关闭", "إغلاق"],
+    "g.villa": ["Façade de la villa", "Villa façade", "别墅外观", "واجهة الفيلا"],
+    "g.facade": ["Entrée de la propriété", "Property entrance", "物业入口", "مدخل العقار"],
+    "g.porche": ["Porche d’entrée", "Entrance porch", "入口门廊", "رواق المدخل"],
+    "g.salon1": ["Grand salon", "Main reception room", "主客厅", "الصالون الكبير"],
+    "g.salon2": ["Salon, plafonds ouvragés", "Reception room with ornate ceilings", "雕饰天花板客厅", "صالون بأسقف مزخرفة"],
+    "g.salon3": ["Salon et baies vitrées", "Reception room and large windows", "客厅与落地窗", "الصالون والنوافذ الكبيرة"],
+    "g.jardin": ["Jardin arboré", "Landscaped garden", "园林花园", "الحديقة المشجّرة"],
+    "g.haie": ["Jardin et clôture sur rue", "Garden and street-side fence", "花园与临街围墙", "الحديقة والسياج المطل على الشارع"],
+    "g.avenue": ["Avenue Mehdi Ben Barka", "Avenue Mehdi Ben Barka", "Mehdi Ben Barka 大道", "شارع المهدي بن بركة"],
     "con.h": ["Visite et échange confidentiel", "Confidential visit and discussion", "预约参观与保密洽谈", "زيارة ونقاش سري"],
     "con.p": ["Le dossier juridique et urbanistique peut être communiqué aux acquéreurs qualifiés. Visites uniquement sur rendez-vous.",
               "The legal and planning file can be shared with qualified buyers. Viewings by appointment only.",
@@ -107,6 +119,24 @@ html[lang=ar] body{font-family:"Noto Naskh Arabic","Segoe UI",Tahoma,"Geeza Pro"
 html[lang=zh-Hans] body{font-family:Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif}
 html[lang=ar] .kicker,html[lang=zh-Hans] .kicker,html[lang=ar] .stat span,html[lang=zh-Hans] .stat span{letter-spacing:.04em}
 html[lang=ar] h1 span,html[lang=ar] .lead{line-height:1.8}
+/* Galerie photos de la villa */
+.villa-gallery{padding:70px 0 80px}
+.vg-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:12px}
+.vg-item{all:unset;position:relative;overflow:hidden;border-radius:16px;cursor:zoom-in;border:1px solid rgba(213,176,103,.24);box-shadow:var(--shadow);display:block}
+.vg-item.big{grid-column:span 2;grid-row:span 2}
+.vg-item.wide{grid-column:span 2}
+.vg-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.vg-item:hover img{transform:scale(1.04)}
+.vg-item span{position:absolute;left:10px;right:10px;bottom:10px;padding:7px 11px;border-radius:999px;background:rgba(5,16,28,.72);backdrop-filter:blur(8px);font-size:11px;font-weight:700;color:#f2d89d;text-align:center;opacity:0;transition:opacity .3s}
+.vg-item:hover span,.vg-item:focus-visible span{opacity:1}
+.vg-item:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.vg-box{border:0;padding:0;background:transparent;max-width:94vw;max-height:94vh;color:#fff}
+.vg-box::backdrop{background:rgba(3,9,16,.92)}
+.vg-box img{display:block;max-width:94vw;max-height:84vh;border-radius:14px}
+.vg-box p{text-align:center;color:#d7e0e8;margin:12px 0 0;font-size:14px}
+.vg-close{position:fixed;top:16px;right:16px;border:1px solid rgba(255,255,255,.3);background:rgba(5,16,28,.8);color:#fff;border-radius:999px;padding:10px 16px;font:700 13px/1 Inter,system-ui,sans-serif;cursor:pointer}
+@media(max-width:900px){.vg-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.vg-item.big{grid-column:span 2;grid-row:span 1}}
+@media(max-width:600px){.villa-gallery{padding:50px 0 56px}.vg-grid{grid-auto-rows:130px;gap:8px}.vg-item span{opacity:1;font-size:10px;padding:5px 8px}}
 /* Héro plus compact : suppression de la hauteur plein écran et des grands vides */
 .hero{min-height:0;padding:44px 0 40px;gap:44px}
 @media(max-width:900px){.hero{padding-top:32px}}
@@ -179,6 +209,97 @@ tail_js = """<script>
 </script>
 """
 sub("</body>", tail_js + "</body>")
+
+# --- Galerie photos de la villa (avant le dossier) ---
+PHOTOS = [("villa", "villa.webp", "big"), ("facade", "facade-entree.webp", ""), ("porche", "porche.webp", ""),
+          ("salon1", "salon-1.webp", ""), ("salon2", "salon-2.webp", ""), ("jardin", "jardin.webp", "wide"),
+          ("salon3", "salon-3.webp", ""), ("haie", "jardin-haie.webp", "")]
+items = "".join(
+    f'<button type="button" class="vg-item {c}" data-k="g.{k}"><img src="assets/img/{f}" alt="" loading="lazy" decoding="async"><span data-i18n="g.{k}"></span></button>'
+    for k, f, c in PHOTOS)
+gallery = f"""<section class="villa-gallery" id="photos">
+    <div class="shell">
+      <div class="section-head"><h2 data-i18n="gal.h">La villa en images</h2><p data-i18n="gal.p"></p></div>
+      <div class="vg-grid">{items}</div>
+    </div>
+  </section>
+  <dialog class="vg-box" id="vgBox"><button type="button" class="vg-close" id="vgClose" data-i18n="gal.close">Fermer</button><img id="vgImg" alt=""><p id="vgCap"></p></dialog>
+
+  """
+sub('<section class="dossier" id="dossier">', gallery + '<section class="dossier" id="dossier">')
+sub("</body>", """<script>
+(function(){
+  var box=document.getElementById('vgBox'),img=document.getElementById('vgImg'),cap=document.getElementById('vgCap');
+  document.querySelectorAll('.vg-item').forEach(function(b){b.addEventListener('click',function(){
+    img.src=b.querySelector('img').src;var t=S7T(b.getAttribute('data-k'));img.alt=t;cap.textContent=t;
+    if(box.showModal)box.showModal();else box.setAttribute('open','');});});
+  document.getElementById('vgClose').addEventListener('click',function(){box.close();});
+  box.addEventListener('click',function(e){if(e.target===box)box.close();});
+  document.querySelectorAll('.vg-item img').forEach(function(i){i.alt=S7T(i.parentNode.getAttribute('data-k'));});
+})();
+</script>
+</body>""")
+
+# --- Pages du dossier : la page 10 (titre seul) est fusionnée avec le plan de la page 11 ---
+import base64, io, re
+from PIL import Image, ImageDraw
+
+def page_img(n):
+    m = re.search(r'<article class="pdf-page" id="page-%d">\s*<div class="page-label"[^>]*>[^<]*</div>\s*<img src="data:image/webp;base64,([^"]+)"' % n, html)
+    return Image.open(io.BytesIO(base64.b64decode(m.group(1)))).convert("RGB"), m.group(1)
+
+def enc(im):
+    b = io.BytesIO(); im.save(b, "WEBP", quality=88, method=6); return base64.b64encode(b.getvalue()).decode()
+
+p10, b10 = page_img(10); p11, b11 = page_img(11); p12, b12 = page_img(12)
+W, H = p10.size
+new = Image.new("RGB", (W, H), "white")
+new.paste(p10.crop((0, 0, W, 300)), (0, 0))                    # titre « Annexe 1 »
+content = p11.crop((0, 120, W, 1615))                           # plan + légende de la page 11
+avail = 1660 - 310
+sc = min(1, avail / content.height)
+content = content.resize((int(W * sc), int(content.height * sc)), Image.LANCZOS)
+new.paste(content, ((W - content.width) // 2, 310))
+new.paste(p10.crop((0, 1660, W, H)), (0, 1660))                 # pied de page « Page 10 »
+html = html.replace(b10, enc(new), 1)
+
+# page 12 devient la page 11 : pied de page « Page 12 » effacé
+d = ImageDraw.Draw(p12); d.rectangle((0, 1675, W, 1715), fill="white")
+html = html.replace(b12, enc(p12), 1)
+
+html, n = re.subn(r'<article class="pdf-page" id="page-11">.*?</article>\s*', '', html, count=1, flags=re.S)
+assert n == 1
+html = html.replace('id="page-12"', 'id="page-11"').replace('data-i18n-page="12">Page 12 / 12', 'data-i18n-page="11">Page 11 / 11')
+html = re.sub(r'(data-i18n-page="\d+">Page \d+) / 12', r'\1 / 11', html)
+
+# --- PDF intégré : même correction (page 10 = titre + plan, ancienne page 11 supprimée) ---
+from pypdf import PdfReader, PdfWriter, Transformation
+from pypdf.generic import ContentStream, NameObject, ArrayObject
+
+m = re.search(r'<script id="pdf-b64" type="text/plain">([^<]+)</script>', html)
+reader = PdfReader(io.BytesIO(base64.b64decode(m.group(1).strip())))
+writer = PdfWriter(clone_from=reader)
+pg10, pg11, pg12 = writer.pages[9], writer.pages[10], writer.pages[11]
+# Plan de la page 11 (zone y 66.7 → 784.3 pt) réduit sous le titre de la page 10 (zone y 45 → 693 pt)
+scale = 0.903
+x_off = 595.276 * (1 - scale) / 2
+pg10.merge_transformed_page(pg11, Transformation().translate(0, -66.7).scale(scale, scale).translate(x_off, 45.1))
+
+def white_rect(page, y0, y1):
+    rect = ContentStream(None, writer)
+    rect.set_data(b"q 1 1 1 rg 0 %.1f 595.3 %.1f re f Q" % (y0, y1 - y0))
+    ref = writer._add_object(rect)
+    contents = page.get_contents()
+    # q … Q autour du contenu d'origine pour repartir d'un repère de page propre
+    q = ContentStream(None, writer); q.set_data(b"q")
+    Q = ContentStream(None, writer); Q.set_data(b"Q")
+    page[NameObject("/Contents")] = ArrayObject([writer._add_object(q), writer._add_object(contents), writer._add_object(Q), ref])
+
+white_rect(pg10, 0, 20)      # pied de page de l'ancienne page 11 (réduit)
+white_rect(pg12, 20, 36)     # pied de page « Page 12 » effacé (devient la page 11)
+writer.remove_page(10)
+buf = io.BytesIO(); writer.write(buf)
+html = html.replace(m.group(1), base64.b64encode(buf.getvalue()).decode(), 1)
 
 open(DST, "w", encoding="utf-8").write(html)
 print("OK", DST, len(html))
