@@ -15,6 +15,7 @@ const FRAMES = opt('--frames', '/tmp/film/frames');
 const AUDIO = opt('--audio', null);
 const OUT = opt('--out', 'public/assets/video');
 const TEST = opt('--test', null);
+const FRESH = args.includes('--fresh') && args.splice(args.indexOf('--fresh'), 1);
 const FPS = 25;
 const langs = args.length ? args : ['fr', 'en', 'zh', 'ar'];
 const page = 'file://' + path.resolve(__dirname, 'film.html');
@@ -31,11 +32,24 @@ async function renderLang(browser, lang) {
     }
     await p.close(); return;
   }
-  const dir = `/tmp/film/out-${lang}`; fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });
+  // Les images déjà rendues sont réutilisées (reprise après interruption) ; --fresh pour tout refaire
+  const dir = `/tmp/film/out-${lang}`;
+  if (FRESH) fs.rmSync(dir, { recursive: true, force: true });
+  fs.mkdirSync(dir, { recursive: true });
   const n = Math.round(total * FPS);
   for (let i = 0; i < n; i++) {
-    await p.evaluate(t => window.render(t), i / FPS);
-    await p.screenshot({ path: `${dir}/${String(i).padStart(5, '0')}.jpg`, type: 'jpeg', quality: 92 });
+    const file = `${dir}/${String(i).padStart(5, '0')}.jpg`;
+    if (fs.existsSync(file)) continue;
+    for (let attempt = 1; ; attempt++) {
+      try {
+        await p.evaluate(t => window.render(t), i / FPS);
+        await p.screenshot({ path: file, type: 'jpeg', quality: 92, timeout: 120000 });
+        break;
+      } catch (e) {
+        if (attempt >= 3) throw e;
+        console.log(lang, 'nouvel essai image', i);
+      }
+    }
     if (i % 250 === 0) console.log(lang, i, '/', n);
   }
   await p.close();
@@ -54,6 +68,6 @@ async function renderLang(browser, lang) {
 
 (async () => {
   const browser = await chromium.launch();
-  await Promise.all(langs.map(l => renderLang(browser, l)));
+  for (const l of langs) await renderLang(browser, l);   // une langue à la fois (plus fiable)
   await browser.close();
 })();
