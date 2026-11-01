@@ -195,11 +195,15 @@ var D = T[LANG], RTL = LANG === 'ar', DIR = RTL ? -1 : 1;
 document.documentElement.lang = LANG; document.documentElement.dir = RTL ? 'rtl' : 'ltr';
 
 /* Montage (secondes) */
-var INTRO = [0, 4.5];
+// Durées des sections (?durs=intro,é1,é2,é3,é4,é5,schéma,fin) — calées sur la voix off si fournies
+var DURS = (Q.get('durs') || '4.5,7.2,7.2,7.2,7.2,7.2,15,6.5').split(',').map(Number);
+var INTRO = [0, DURS[0]];
 var SEG = [[0.0, 2.5], [2.5, 5.0], [5.0, 7.0], [7.0, 9.6], [9.6, 15.0]];   // extraits de la vidéo source
-var CH_LEN = 7.2, CH0 = INTRO[1];
-var SCHEMA = [CH0 + 5 * CH_LEN, CH0 + 5 * CH_LEN + 15];
-var OUTRO = [SCHEMA[1], SCHEMA[1] + 6.5];
+var CH0 = INTRO[1], CHS = [CH0];
+for (var c_ = 1; c_ <= 5; c_++) CHS.push(CHS[c_ - 1] + DURS[c_]);       // débuts des étapes (+ fin)
+var SCHEMA = [CHS[5], CHS[5] + DURS[6]];
+var OUTRO = [SCHEMA[1], SCHEMA[1] + DURS[7]];
+var SK = DURS[6] / 15;   // facteur d'étirement de l'animation du schéma
 var TOTAL = OUTRO[1];
 window.FILM_TOTAL = TOTAL;
 
@@ -302,13 +306,16 @@ window.render = function (t) {
 
   /* chapitres vidéo */
   if (inCh || (intro && t > INTRO[1] - 0.8)) {
-    var i = intro ? 0 : Math.floor((t - CH0) / CH_LEN), lt = intro ? t - CH0 : (t - CH0) - i * CH_LEN;
-    var seg = SEG[i], playLen = CH_LEN - 1.6, k = clamp((lt - 0.3) / playLen, 0, 1);
+    var i = 0; if (!intro) while (i < 4 && t >= CHS[i + 1]) i++;
+    var CH_LEN = DURS[i + 1], lt = t - CHS[i];
+    // l'extrait est joué au plus à 0,4× puis l'image finale est tenue (zoom lent)
+    var seg = SEG[i], playLen = Math.min(CH_LEN - 1.6, (seg[1] - seg[0]) / 0.4), k = clamp((lt - 0.3) / playLen, 0, 1);
     setFrame(lerp(seg[0], seg[1] - 0.02, k));
     var inK = prog(lt, -0.8, 0.7), outK = (i < 4) ? prog(lt, CH_LEN - 0.55, CH_LEN) : prog(lt, CH_LEN - 0.7, CH_LEN);
     var rot = lerp(48, -7, inK) + lerp(0, 4, prog(lt, 0.7, CH_LEN - 0.6)) + lerp(0, -42, outK);
     var tx = lerp(-260, 0, inK) + lerp(0, 120, outK);
-    var sc = lerp(1, 1.035, prog(lt, 0, CH_LEN));
+    var sc = lerp(1, 1 + Math.min(0.045, 0.004 * CH_LEN), prog(lt, 0, CH_LEN));
+    card.style.transformOrigin = RTL ? 'right center' : 'left center';
     card.style.transform = 'translateX(' + (tx * DIR) + 'px) rotateY(' + (rot * DIR) + 'deg) scale(' + sc + ')';
     show(card, Math.min(inK, 1 - outK));
     // panneau texte
@@ -319,7 +326,8 @@ window.render = function (t) {
     var lis = $('bul').children;
     for (var j = 0; j < 3; j++) {
       lis[j].textContent = c[1][j];
-      var a = prog(lt, 0.9 + j * 0.45, 1.5 + j * 0.45);
+      var bt = 1.0 + j * Math.max(0.45, (CH_LEN - 3) / 3.2);   // puces révélées au fil de la voix
+      var a = prog(lt, bt, bt + 0.6);
       lis[j].style.opacity = Math.min(a, 1 - outK); lis[j].style.transform = 'translateY(' + lerp(16, 0, a) + 'px)';
     }
     var pk = prog(lt, 0.2, 0.9);
@@ -329,7 +337,7 @@ window.render = function (t) {
 
   /* schéma 3D */
   if (inSc) {
-    var st = t - SCHEMA[0], so = Math.min(prog(st, 0, 0.8), 1 - prog(st, 14.2, 15));
+    var st = (t - SCHEMA[0]) / SK, so = Math.min(prog(st, 0, 0.8 / SK), 1 - prog(st, 15 - 0.8 / SK, 15));
     show($('schema'), so);
     var rz = lerp(-38, -22, prog(st, 0, 15)) * DIR, rx = lerp(62, 57, prog(st, 0, 15));
     world.style.transform = 'scale3d(1.3,1.3,1.3) rotateX(' + rx + 'deg) rotateZ(' + rz + 'deg)';
@@ -355,7 +363,7 @@ window.render = function (t) {
 
   /* fin */
   if (inOut) {
-    var ot = t - OUTRO[0], oo = Math.min(prog(ot, 0.2, 1.2), 1 - prog(ot, 5.8, 6.5));
+    var ot = t - OUTRO[0], oo = Math.min(prog(ot, 0.2, 1.2), 1 - prog(ot, DURS[7] - 0.7, DURS[7]));
     show($('outro'), oo); $('outro').style.transform = 'translateY(' + lerp(24, 0, prog(ot, 0.2, 1.2)) + 'px)';
     $('stats').querySelectorAll('.stat').forEach(function (s, n) { s.style.opacity = prog(ot, 0.9 + n * 0.25, 1.5 + n * 0.25); });
   } else show($('outro'), 0);
