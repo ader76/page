@@ -80,16 +80,6 @@
     if (e.key === 'ArrowRight') show(idx + 1);
   });
 
-  /* reveal on scroll */
-  var rv = $$('.section .wrap > *, .facts-grid > div');
-  rv.forEach(function (el) { el.classList.add('rv'); });
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0, rootMargin: '0px 0px -4% 0px' });
-    rv.forEach(function (el) { io.observe(el); });
-  } else { rv.forEach(function (el) { el.classList.add('in'); }); }
-
   $('#year').textContent = new Date().getFullYear();
   apply(detect());
 })();
