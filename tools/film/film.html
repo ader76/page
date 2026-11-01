@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SOUMAYA 7 · film</title>
+<!--
+  Film de présentation SOUMAYA 7 (1920×1080, rendu image par image par render.js).
+  render(t) dessine l'image à l'instant t (secondes) de façon déterministe.
+  Paramètres d'URL : ?lang=fr|en|zh|ar&frames=<dossier des images vidéo>
+-->
+<style>
+:root{--navy:#071523;--gold:#d5b067;--gold2:#f2d89d;--muted:#9fb0bd}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#071523}
+body{position:relative;color:#fff;font-family:Inter,"DejaVu Sans",sans-serif;
+  background:radial-gradient(circle at 78% 0%,rgba(53,88,116,.38),transparent 40%),linear-gradient(180deg,#071523 0%,#0a1b2c 55%,#06111d 100%)}
+html[lang=zh] body{font-family:Inter,"WenQuanYi Zen Hei",sans-serif}
+html[lang=ar] body{font-family:"DejaVu Sans",sans-serif}
+.serif{font-family:Caladea,"DejaVu Serif",Georgia,serif}
+html[lang=zh] .serif{font-family:Caladea,"WenQuanYi Zen Hei",serif}
+html[lang=ar] .serif{font-family:"DejaVu Sans",sans-serif}
+
+/* en-tête permanent */
+.brand{position:absolute;top:56px;inset-inline-start:90px;display:flex;align-items:center;gap:18px;z-index:20}
+.logo{width:64px;height:64px;border:1.5px solid rgba(213,176,103,.75);border-radius:18px;display:grid;place-items:center;font:700 26px Caladea,Georgia,serif;color:var(--gold)}
+.brand b{display:block;font:600 24px Caladea,Georgia,serif;letter-spacing:.14em}
+.brand small{display:block;color:var(--muted);font-size:15px;letter-spacing:.12em;margin-top:4px}
+.place{position:absolute;top:76px;inset-inline-end:90px;color:var(--muted);font-size:18px;letter-spacing:.14em;z-index:20}
+.note{position:absolute;bottom:40px;inset-inline-end:90px;color:#6f8291;font-size:16px;z-index:20}
+
+/* frise des étapes */
+.steps{position:absolute;bottom:92px;inset-inline:90px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;z-index:20}
+.step{border-top:3px solid rgba(255,255,255,.14);padding-top:12px;color:#6f8291;font-size:17px;letter-spacing:.04em}
+.step.on{border-color:var(--gold);color:var(--gold2)}
+.step.done{border-color:rgba(213,176,103,.45);color:#9fb0bd}
+
+/* scène vidéo */
+.stage{position:absolute;inset:0;perspective:2200px}
+.card{position:absolute;top:250px;inset-inline-start:90px;width:1170px;height:520px;border-radius:26px;padding:12px;
+  background:linear-gradient(145deg,rgba(213,176,103,.28),rgba(255,255,255,.04));border:1px solid rgba(213,176,103,.35);
+  box-shadow:0 40px 90px rgba(0,0,0,.5);transform-style:preserve-3d}
+.card img{display:block;width:1146px;height:496px;border-radius:17px;object-fit:cover}
+.panel{position:absolute;top:250px;inset-inline-start:1320px;width:520px}
+.num{font-size:120px;line-height:1;color:var(--gold)}
+.kick{color:var(--gold);font-size:18px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin:6px 0 18px}
+html[lang=ar] .kick,html[lang=zh] .kick{letter-spacing:.06em}
+.title{font-size:56px;line-height:1.08;margin-bottom:30px}
+html[lang=ar] .title{line-height:1.35}
+.bul{list-style:none}
+.bul li{position:relative;padding-inline-start:30px;font-size:25px;line-height:1.4;color:#d7e0e8;margin-bottom:20px}
+.bul li:before{content:"";position:absolute;inset-inline-start:0;top:.7em;width:16px;height:2px;background:var(--gold)}
+
+/* intro / fin */
+.intro,.outro{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding-inline:90px}
+.intro h1{font-size:150px;font-weight:500;line-height:.9;letter-spacing:-.03em}
+.intro h2{font-size:44px;font-weight:400;color:#d7e0e8;margin-top:30px;font-family:Inter,"WenQuanYi Zen Hei","DejaVu Sans",sans-serif}
+.intro p{color:var(--gold);font-size:22px;font-weight:700;letter-spacing:.2em;margin-bottom:28px;text-transform:uppercase}
+.intro .sub{color:var(--muted);font-size:26px;letter-spacing:.04em;text-transform:none;font-weight:400;margin:28px 0 0}
+.outro{align-items:center;text-align:center}
+.outro h1{font-size:110px;font-weight:500}
+.outro .place2{color:var(--muted);font-size:26px;letter-spacing:.14em;margin:14px 0 70px}
+.stats{display:grid;grid-template-columns:repeat(4,330px);border:1px solid rgba(255,255,255,.1);border-radius:22px;overflow:hidden;background:rgba(255,255,255,.03)}
+.stat{padding:38px 20px;border-inline-start:1px solid rgba(255,255,255,.1)}
+.stat:first-child{border:0}
+.stat b{display:block;font:500 46px Caladea,"DejaVu Serif",serif}
+.stat span{display:block;color:#92a4b1;font-size:17px;letter-spacing:.1em;margin-top:10px;text-transform:uppercase}
+html[lang=ar] .stat span,html[lang=zh] .stat span{letter-spacing:.03em}
+
+/* schéma 3D */
+.schema{position:absolute;inset:0}
+.world-wrap{position:absolute;left:90px;top:200px;width:1170px;height:640px;perspective:2600px;perspective-origin:50% 30%}
+html[dir=rtl] .world-wrap{left:auto;right:90px}
+.world{position:absolute;left:50%;top:66%;width:0;height:0;transform-style:preserve-3d}
+.box,.plane{position:absolute;transform-style:preserve-3d}
+.face{position:absolute;left:0;top:0;backface-visibility:visible}
+.lbl{position:absolute;white-space:nowrap;font-size:20px;font-weight:600;color:#fff;background:rgba(5,16,28,.82);border:1px solid rgba(213,176,103,.55);
+  padding:7px 13px;border-radius:999px;transform:translate(-50%,-50%);z-index:5}
+.lbl.gold{color:#091522;background:linear-gradient(135deg,#e3c681,#c49b4d);border:0}
+.legend li{font-size:24px}
+.lbl.left{transform:translate(calc(-100% - 16px),-50%)}
+.lbl.right{transform:translate(16px,-50%)}
+.icard{position:absolute;top:240px;inset-inline-end:90px;width:960px;height:427px;border-radius:26px;padding:12px;background:linear-gradient(145deg,rgba(213,176,103,.28),rgba(255,255,255,.04));border:1px solid rgba(213,176,103,.35);box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.icard img{display:block;width:936px;height:403px;border-radius:17px;object-fit:cover}
+.istage{position:absolute;inset:0;perspective:2200px}
+</style>
+</head>
+<body>
+<div class="brand"><div class="logo">S7</div><div><b>SOUMAYA 7</b><small>SV7-2026</small></div></div>
+<div class="place" id="place"></div>
+
+<div class="stage" id="stage">
+  <div class="card" id="card"><img id="frame" alt=""></div>
+  <div class="panel" id="panel">
+    <div class="num serif" id="num"></div>
+    <div class="kick" id="kick"></div>
+    <div class="title serif" id="title"></div>
+    <ul class="bul" id="bul"><li></li><li></li><li></li></ul>
+  </div>
+</div>
+
+<div class="istage" id="istage"><div class="icard" id="icard"><img id="iimg" alt=""></div></div>
+<div class="intro" id="intro">
+  <p id="iKick"></p>
+  <h1 class="serif">Soumaya 7</h1>
+  <h2 id="iTitle"></h2>
+  <p class="sub" id="iSub"></p>
+</div>
+
+<div class="schema" id="schema">
+  <div class="world-wrap"><div class="world" id="world"></div></div>
+  <div class="panel" id="sPanel">
+    <div class="kick" id="sKick"></div>
+    <div class="title serif" id="sTitle"></div>
+    <ul class="bul legend" id="legend"></ul>
+  </div>
+  <div id="labels"></div>
+</div>
+
+<div class="outro" id="outro">
+  <h1 class="serif">SOUMAYA 7</h1>
+  <div class="place2" id="oPlace"></div>
+  <div class="stats" id="stats"></div>
+</div>
+
+<div class="steps" id="steps"></div>
+<div class="note" id="note"></div>
+
+<script>
+var T = {
+  fr: {
+    place: "SOUISSI · RABAT", note: "Images de synthèse indicatives",
+    iKick: "Dossier acheteur", iTitle: "Du foncier existant au projet", iSub: "5 étapes · schéma 3D des volumes",
+    step: "Étape", of: "sur",
+    ch: [
+      ["La villa actuelle", ["Villa R+1 édifiée en 1986", "Parcelle titrée de 1 515 m²", "Façade sur l’avenue Mehdi Ben Barka (30 m d’emprise)"]],
+      ["Démolition", ["Aucun classement patrimonial connu", "Réhabilitation ou démolition, au choix de l’acquéreur", "Terrain libéré pour une construction neuve"]],
+      ["Terrassement", ["Décaissement de 1,5 m du rez-de-chaussée", "Jusqu’à 2 sous-sols : parkings, locaux techniques", "Sous réserve d’étude géotechnique"]],
+      ["Structure", ["Hauteur autorisée : 9 m (R+1)", "Emprise au sol ≈ 606 m² (C.U.S 40 %)", "Plancher hors œuvre ≈ 1 060 m² (C.O.S 0,7)"]],
+      ["Le projet", ["Façade vitrée, visibilité maximale sur l’avenue", "Aspect R+2 grâce au décaissement", "Clinique, siège, enseignement, boutique-hôtel"]]
+    ],
+    sKick: "Schéma indicatif, non à l’échelle", sTitle: "Schéma 3D des volumes",
+    L: { plot: "Parcelle 1 515 m²", b2: "Sous-sol −2", b1: "Sous-sol −1", dec: "Décaissement 1,5 m", rdc: "Rez-de-chaussée", r1: "R+1", h: "Hauteur 9 m", foot: "Emprise ≈ 606 m²", floor: "Plancher ≈ 1 060 m²", ave: "Avenue Mehdi Ben Barka" },
+    stats: [["1 515 m²", "Superficie titrée"], ["A5", "Axe tertiaire"], ["≈ 1 060 m²", "Plancher hors œuvre"], ["24 M MAD", "Prix de présentation"]]
+  },
+  en: {
+    place: "SOUISSI · RABAT", note: "Indicative computer-generated images",
+    iKick: "Buyer dossier", iTitle: "From existing site to project", iSub: "5 steps · 3D massing diagram",
+    step: "Step", of: "of",
+    ch: [
+      ["The existing villa", ["G+1 villa built in 1986", "1,515 m² titled plot", "Frontage on Avenue Mehdi Ben Barka (30 m wide)"]],
+      ["Demolition", ["No known heritage listing", "Refurbish or demolish, at the buyer’s choice", "Site cleared for a new building"]],
+      ["Earthworks", ["Ground floor lowered by 1.5 m", "Up to 2 basement levels: parking, plant rooms", "Subject to a geotechnical survey"]],
+      ["Structure", ["Permitted height: 9 m (G+1)", "Footprint ≈ 606 m² (CUS 40%)", "Gross floor area ≈ 1,060 m² (COS 0.7)"]],
+      ["The project", ["Glazed façade, maximum visibility on the avenue", "Reads as G+2 thanks to the lowered ground floor", "Clinic, headquarters, education, boutique hotel"]]
+    ],
+    sKick: "Indicative diagram, not to scale", sTitle: "3D massing diagram",
+    L: { plot: "Plot 1,515 m²", b2: "Basement −2", b1: "Basement −1", dec: "Lowered 1.5 m", rdc: "Ground floor", r1: "First floor", h: "Height 9 m", foot: "Footprint ≈ 606 m²", floor: "Floor area ≈ 1,060 m²", ave: "Avenue Mehdi Ben Barka" },
+    stats: [["1,515 m²", "Titled area"], ["A5", "Business corridor"], ["≈ 1,060 m²", "Gross floor area"], ["MAD 24 M", "Asking price"]]
+  },
+  zh: {
+    place: "苏伊西 · 拉巴特", note: "效果图仅供参考",
+    iKick: "买方资料", iTitle: "从现有地块到项目", iSub: "5 个阶段 · 三维体量示意",
+    step: "阶段", of: "/",
+    ch: [
+      ["现有别墅", ["1986 年建成的两层别墅 (R+1)", "已登记产权地块 1,515 平方米", "临 Mehdi Ben Barka 大道(道路宽 30 米)"]],
+      ["拆除", ["无已知文物保护等级", "可由买方选择翻新或拆除", "腾空地块用于新建"]],
+      ["土方工程", ["底层下沉 1.5 米", "最多 2 层地下室:停车场、设备用房", "须经地质勘察"]],
+      ["主体结构", ["限高 9 米 (R+1)", "占地面积 ≈ 606 平方米 (C.U.S 40%)", "总建筑面积 ≈ 1,060 平方米 (C.O.S 0.7)"]],
+      ["项目建成效果", ["玻璃幕墙,临街展示效果最佳", "借助下沉设计,外观呈现 R+2 效果", "诊所、企业总部、教育机构、精品酒店"]]
+    ],
+    sKick: "示意图,非按比例", sTitle: "三维体量示意图",
+    L: { plot: "地块 1,515 m²", b2: "地下二层", b1: "地下一层", dec: "下沉 1.5 米", rdc: "首层", r1: "二层 (R+1)", h: "高度 9 米", foot: "占地 ≈ 606 m²", floor: "建筑面积 ≈ 1,060 m²", ave: "Mehdi Ben Barka 大道" },
+    stats: [["1,515 m²", "产权面积"], ["A5", "商务办公轴线"], ["≈ 1,060 m²", "建筑面积"], ["2,400 万迪拉姆", "报价"]]
+  },
+  ar: {
+    place: "السويسي · الرباط", note: "صور تركيبية إرشادية",
+    iKick: "ملف المشتري", iTitle: "من العقار الحالي إلى المشروع", iSub: "5 مراحل · مخطط ثلاثي الأبعاد للأحجام",
+    step: "المرحلة", of: "من",
+    ch: [
+      ["الفيلا الحالية", ["فيلا من طابقين (R+1) شُيّدت سنة 1986", "قطعة محفّظة مساحتها 1515 م²", "واجهة على شارع المهدي بن بركة (عرض 30 م)"]],
+      ["الهدم", ["لا يوجد أي تصنيف تراثي معروف", "إعادة التأهيل أو الهدم حسب اختيار المشتري", "أرض جاهزة لبناء جديد"]],
+      ["أشغال الحفر", ["خفض الطابق الأرضي بمقدار 1,5 م", "حتى طابقين سفليين: مواقف سيارات ومرافق تقنية", "رهينًا بدراسة جيوتقنية"]],
+      ["الهيكل", ["العلو المسموح: 9 م (R+1)", "المساحة المبنية على الأرض ≈ 606 م² (C.U.S 40%)", "المساحة الإجمالية للطوابق ≈ 1060 م² (C.O.S 0,7)"]],
+      ["المشروع", ["واجهة زجاجية بأقصى ظهور على الشارع", "مظهر R+2 بفضل خفض الطابق الأرضي", "عيادة، مقر شركة، تعليم، فندق بوتيك"]]
+    ],
+    sKick: "مخطط إرشادي، ليس وفق المقياس", sTitle: "مخطط ثلاثي الأبعاد للأحجام",
+    L: { plot: "القطعة 1515 م²", b2: "الطابق السفلي −2", b1: "الطابق السفلي −1", dec: "خفض 1,5 م", rdc: "الطابق الأرضي", r1: "الطابق الأول", h: "العلو 9 م", foot: "المساحة المبنية ≈ 606 م²", floor: "مساحة الطوابق ≈ 1060 م²", ave: "شارع المهدي بن بركة" },
+    stats: [["1515 م²", "المساحة المحفّظة"], ["A5", "محور الأنشطة الثالثية"], ["≈ 1060 م²", "المساحة المبنية الإجمالية"], ["24 مليون درهم", "السعر المعروض"]]
+  }
+};
+
+var Q = new URLSearchParams(location.search);
+var LANG = Q.get('lang') || 'fr', FR = Q.get('frames') || '/tmp/film/frames', FPS_SRC = 75;
+var D = T[LANG], RTL = LANG === 'ar', DIR = RTL ? -1 : 1;
+document.documentElement.lang = LANG; document.documentElement.dir = RTL ? 'rtl' : 'ltr';
+
+/* Montage (secondes) */
+var INTRO = [0, 4.5];
+var SEG = [[0.0, 2.5], [2.5, 5.0], [5.0, 7.0], [7.0, 9.6], [9.6, 15.0]];   // extraits de la vidéo source
+var CH_LEN = 7.2, CH0 = INTRO[1];
+var SCHEMA = [CH0 + 5 * CH_LEN, CH0 + 5 * CH_LEN + 15];
+var OUTRO = [SCHEMA[1], SCHEMA[1] + 6.5];
+var TOTAL = OUTRO[1];
+window.FILM_TOTAL = TOTAL;
+
+var $ = function (id) { return document.getElementById(id); };
+var clamp = function (x, a, b) { return Math.max(a, Math.min(b, x)); };
+var ease = function (x) { x = clamp(x, 0, 1); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+var prog = function (t, a, b) { return ease((t - a) / (b - a)); };
+var lerp = function (a, b, k) { return a + (b - a) * k; };
+
+/* textes fixes */
+$('place').textContent = D.place; $('note').textContent = D.note;
+$('iKick').textContent = D.iKick; $('iTitle').textContent = D.iTitle; $('iSub').textContent = D.iSub;
+$('sKick').textContent = D.sKick; $('sTitle').textContent = D.sTitle;
+$('oPlace').textContent = D.place;
+$('steps').innerHTML = D.ch.map(function (c, i) { return '<div class="step">' + String(i + 1).padStart(2, '0') + ' · ' + c[0] + '</div>'; }).join('');
+$('stats').innerHTML = D.stats.map(function (s) { return '<div class="stat"><b dir="ltr">' + s[0] + '</b><span>' + s[1] + '</span></div>'; }).join('');
+
+/* ---------- Schéma 3D (CSS 3D) ---------- */
+var S = 26;               // pixels par mètre (vertical)
+var PW = 520, PD = 400;   // parcelle (px)
+var BW = 330, BD = 250;   // emprise du bâtiment (px) ≈ 40 % de la parcelle
+var world = $('world');
+function face(parent, w, h, tf, bg, border) {
+  var f = document.createElement('div'); f.className = 'face';
+  f.style.width = w + 'px'; f.style.height = h + 'px';
+  f.style.transform = 'translate(-50%,-50%) ' + tf; f.style.background = bg; if (border) f.style.border = border;
+  parent.appendChild(f); return f;
+}
+function box(w, d, z0, h, top, side, side2, border) {
+  // boîte centrée sur l'origine, du niveau z0 au niveau z0+h (en px, Z vers le haut)
+  var b = document.createElement('div'); b.className = 'box'; world.appendChild(b);
+  face(b, w, d, 'translateZ(' + (z0 + h) + 'px)', top, border);                                  // dessus
+  face(b, w, h, 'translateY(' + (d / 2) + 'px) translateZ(' + (z0 + h / 2) + 'px) rotateX(90deg)', side, border);   // avant
+  face(b, w, h, 'translateY(' + (-d / 2) + 'px) translateZ(' + (z0 + h / 2) + 'px) rotateX(90deg)', side, border);  // arrière
+  face(b, d, h, 'translateX(' + (w / 2) + 'px) translateZ(' + (z0 + h / 2) + 'px) rotateZ(90deg) rotateX(90deg)', side2, border); // droite
+  face(b, d, h, 'translateX(' + (-w / 2) + 'px) translateZ(' + (z0 + h / 2) + 'px) rotateZ(90deg) rotateX(90deg)', side2, border); // gauche
+  return b;
+}
+function anchor(x, y, z) { var a = document.createElement('div'); a.className = 'box'; a.style.transform = 'translate3d(' + x + 'px,' + y + 'px,' + z + 'px)'; world.appendChild(a); return a; }
+
+var Z_DEC = -1.5 * S, Z_B1 = Z_DEC - 3.2 * S, Z_B2 = Z_B1 - 3.2 * S, Z_TOP = 9 * S, Z_R1 = Z_DEC + (Z_TOP - Z_DEC) / 2;
+var GOLD = 'rgba(213,176,103,', LINE = '1px solid rgba(242,216,157,.55)';
+var parts = {
+  plot: box(PW, PD, -3, 3, 'linear-gradient(135deg,rgba(105,170,120,.30),rgba(70,120,90,.24))', 'rgba(60,90,70,.6)', 'rgba(50,80,60,.6)', '1px solid rgba(150,210,160,.5)'),
+  road: box(PW + 220, 90, -3, 2, 'repeating-linear-gradient(90deg,rgba(90,100,110,.85) 0 40px,rgba(120,130,140,.85) 40px 46px)', 'rgba(50,55,60,.8)', 'rgba(50,55,60,.8)'),
+  b2: box(BW, BD, Z_B2, Z_B1 - Z_B2 - 4, 'rgba(70,110,150,.35)', 'rgba(70,110,150,.30)', 'rgba(60,95,130,.30)', '1px dashed rgba(150,190,230,.6)'),
+  b1: box(BW, BD, Z_B1, Z_DEC - Z_B1 - 4, 'rgba(80,125,170,.40)', 'rgba(80,125,170,.34)', 'rgba(70,110,150,.34)', '1px dashed rgba(150,190,230,.7)'),
+  rdc: box(BW, BD, Z_DEC, Z_R1 - Z_DEC - 4, GOLD + '.55)', 'linear-gradient(180deg,rgba(240,225,190,.9),rgba(200,180,140,.85))', 'rgba(185,165,125,.9)', LINE),
+  r1: box(BW, BD, Z_R1, Z_TOP - Z_R1, GOLD + '.75)', 'linear-gradient(180deg,rgba(250,240,215,.95),rgba(215,195,155,.9))', 'rgba(195,175,135,.95)', LINE),
+  dim: box(4, 4, Z_DEC, Z_TOP - Z_DEC, '#f2d89d', '#f2d89d', '#f2d89d')
+};
+parts.road.style.transform = 'translateY(' + (PD / 2 + 60) + 'px)';
+parts.dim.style.transform = 'translate(' + (BW / 2 + 40) + 'px,' + (BD / 2 + 40) + 'px)';
+var anchors = {
+  plot: anchor(PW / 2 - 40, -PD / 2 + 30, 0),
+  ave: anchor(0, PD / 2 + 60, 0),
+  b2: anchor(-BW / 2, BD / 2, (Z_B2 + Z_B1) / 2),
+  b1: anchor(-BW / 2, BD / 2, (Z_B1 + Z_DEC) / 2),
+  dec: anchor(BW / 2 + 40, BD / 2 + 40, Z_DEC / 2),
+  rdc: anchor(-BW / 2, BD / 2, (Z_DEC + Z_R1) / 2),
+  r1: anchor(-BW / 2, BD / 2, (Z_R1 + Z_TOP) / 2),
+  h: anchor(BW / 2 + 40, BD / 2 + 40, (Z_DEC + Z_TOP) / 2),
+  foot: anchor(0, 0, Z_TOP + 30)
+};
+var labelEls = {};
+['ave', 'b2', 'b1', 'dec', 'rdc', 'r1', 'h', 'foot'].forEach(function (k) {
+  var l = document.createElement('div'); var L1 = ' left', R1 = ' right';
+  var side = { b2: L1, b1: L1, rdc: L1, r1: L1, dec: R1, h: R1 }[k] || '';
+  l.className = 'lbl' + (k === 'h' || k === 'dec' ? ' gold' : '') + side; l.textContent = D.L[k];
+  $('labels').appendChild(l); labelEls[k] = l;
+});
+// légende du panneau
+var LEG = ['plot', 'b2', 'dec', 'rdc', 'r1', 'h', 'floor'];
+$('legend').innerHTML = LEG.map(function (k) { return '<li>' + D.L[k] + '</li>'; }).join('');
+
+/* ---------- rendu d'une image ---------- */
+var img = $('frame'), lastSrc = '';
+function setFrame(sec) {
+  var n = clamp(Math.round(sec * FPS_SRC) + 1, 1, Math.round(15.04 * FPS_SRC));
+  var src = 'file://' + FR + '/f' + String(n).padStart(4, '0') + '.jpg';
+  if (src !== lastSrc) { img.src = src; lastSrc = src; }
+}
+function show(el, o) { el.style.opacity = o; el.style.visibility = o > 0.001 ? 'visible' : 'hidden'; }
+
+window.render = function (t) {
+  var intro = t < INTRO[1], inCh = t >= CH0 && t < SCHEMA[0], inSc = t >= SCHEMA[0] && t < OUTRO[0], inOut = t >= OUTRO[0];
+  var card = $('card'), panel = $('panel');
+
+  /* intro */
+  var io = intro ? Math.min(prog(t, 0.2, 1.4), 1 - prog(t, INTRO[1] - 0.6, INTRO[1])) : 0;
+  show($('intro'), io); $('intro').style.transform = 'translateY(' + lerp(30, 0, prog(t, 0.2, 1.4)) + 'px)';
+  var ik = prog(t, 0.5, 1.8);
+  show($('istage'), intro ? Math.min(ik, 1 - prog(t, INTRO[1] - 0.9, INTRO[1] - 0.2)) : 0);
+  $('icard').style.transform = 'translateX(' + (lerp(160, 0, ik) * DIR) + 'px) rotateY(' + (lerp(-38, -16, ik) * DIR) + 'deg) scale(' + lerp(0.94, 1, prog(t, 0, INTRO[1])) + ')';
+
+  /* frise */
+  var stepsO = inCh ? 1 : (inSc ? 1 - prog(t, SCHEMA[0], SCHEMA[0] + 0.6) : (intro ? prog(t, INTRO[1] - 0.8, INTRO[1]) : 0));
+  show($('steps'), stepsO);
+  show($('note'), inOut ? 1 - prog(t, OUTRO[0], OUTRO[0] + 0.5) : 1);
+
+  /* chapitres vidéo */
+  if (inCh || (intro && t > INTRO[1] - 0.8)) {
+    var i = intro ? 0 : Math.floor((t - CH0) / CH_LEN), lt = intro ? t - CH0 : (t - CH0) - i * CH_LEN;
+    var seg = SEG[i], playLen = CH_LEN - 1.6, k = clamp((lt - 0.3) / playLen, 0, 1);
+    setFrame(lerp(seg[0], seg[1] - 0.02, k));
+    var inK = prog(lt, -0.8, 0.7), outK = (i < 4) ? prog(lt, CH_LEN - 0.55, CH_LEN) : prog(lt, CH_LEN - 0.7, CH_LEN);
+    var rot = lerp(48, -7, inK) + lerp(0, 4, prog(lt, 0.7, CH_LEN - 0.6)) + lerp(0, -42, outK);
+    var tx = lerp(-260, 0, inK) + lerp(0, 120, outK);
+    var sc = lerp(1, 1.035, prog(lt, 0, CH_LEN));
+    card.style.transform = 'translateX(' + (tx * DIR) + 'px) rotateY(' + (rot * DIR) + 'deg) scale(' + sc + ')';
+    show(card, Math.min(inK, 1 - outK));
+    // panneau texte
+    var c = D.ch[i];
+    $('num').textContent = String(i + 1).padStart(2, '0');
+    $('kick').textContent = D.step + ' ' + (i + 1) + ' ' + D.of + ' 5';
+    $('title').textContent = c[0];
+    var lis = $('bul').children;
+    for (var j = 0; j < 3; j++) {
+      lis[j].textContent = c[1][j];
+      var a = prog(lt, 0.9 + j * 0.45, 1.5 + j * 0.45);
+      lis[j].style.opacity = Math.min(a, 1 - outK); lis[j].style.transform = 'translateY(' + lerp(16, 0, a) + 'px)';
+    }
+    var pk = prog(lt, 0.2, 0.9);
+    show(panel, Math.min(pk, 1 - outK)); panel.style.transform = 'translateX(' + (lerp(40, 0, pk) * DIR) + 'px)';
+    $('steps').querySelectorAll('.step').forEach(function (s, n) { s.className = 'step' + (n === i ? ' on' : (n < i ? ' done' : '')); });
+  } else { show(card, 0); show(panel, 0); }
+
+  /* schéma 3D */
+  if (inSc) {
+    var st = t - SCHEMA[0], so = Math.min(prog(st, 0, 0.8), 1 - prog(st, 14.2, 15));
+    show($('schema'), so);
+    var rz = lerp(-38, -22, prog(st, 0, 15)) * DIR, rx = lerp(62, 57, prog(st, 0, 15));
+    world.style.transform = 'scale3d(1.3,1.3,1.3) rotateX(' + rx + 'deg) rotateZ(' + rz + 'deg)';
+    var A = { plot: [0.3, 1.3], road: [0.3, 1.3], b2: [1.6, 2.8], b1: [2.6, 3.8], dec: [4.0, 5.0], rdc: [5.0, 6.4], r1: [6.6, 8.0], h: [8.4, 9.4], foot: [9.6, 10.6], ave: [0.8, 1.8] };
+    var rise = function (key, el) { var a = prog(st, A[key][0], A[key][1]); el.style.opacity = a; return a; };
+    rise('plot', parts.plot); rise('road', parts.road);
+    ['b2', 'b1', 'rdc', 'r1'].forEach(function (k) {
+      var a = rise(k, parts[k]); var base = parts[k].dataset.base || '';
+      parts[k].style.transform = 'translateZ(' + lerp(k[0] === 'b' ? -60 : 70, 0, a) + 'px)';
+    });
+    var dimA = prog(st, A.h[0], A.h[1]); parts.dim.style.opacity = dimA;
+    parts.dim.style.transform = 'translate(' + (BW / 2 + 40) + 'px,' + (BD / 2 + 40) + 'px) scaleZ(' + Math.max(dimA, 0.001) + ')';
+    // étiquettes positionnées sur leurs ancres 3D
+    Object.keys(labelEls).forEach(function (k) {
+      var el = labelEls[k], r = anchors[k].getBoundingClientRect();
+      var a = prog(st, A[k][0] + 0.4, A[k][1] + 0.4);
+      el.style.left = r.left + 'px'; el.style.top = r.top + 'px'; el.style.opacity = Math.min(a, so);
+    });
+    var lis2 = $('legend').children, LT = [0.6, 1.9, 4.2, 5.4, 7.0, 8.8, 10.0];
+    for (var m = 0; m < lis2.length; m++) { var b = prog(st, LT[m], LT[m] + 0.6); lis2[m].style.opacity = b; lis2[m].style.transform = 'translateY(' + lerp(14, 0, b) + 'px)'; }
+    $('sPanel').style.opacity = prog(st, 0.2, 1);
+  } else { show($('schema'), 0); Object.keys(labelEls).forEach(function (k) { labelEls[k].style.opacity = 0; }); }
+
+  /* fin */
+  if (inOut) {
+    var ot = t - OUTRO[0], oo = Math.min(prog(ot, 0.2, 1.2), 1 - prog(ot, 5.8, 6.5));
+    show($('outro'), oo); $('outro').style.transform = 'translateY(' + lerp(24, 0, prog(ot, 0.2, 1.2)) + 'px)';
+    $('stats').querySelectorAll('.stat').forEach(function (s, n) { s.style.opacity = prog(ot, 0.9 + n * 0.25, 1.5 + n * 0.25); });
+  } else show($('outro'), 0);
+
+  return img.complete ? Promise.resolve() : img.decode().catch(function () {});
+};
+$('iimg').src = 'file://' + FR + '/f1050.jpg';
+render(0);
+</script>
+</body>
+</html>
