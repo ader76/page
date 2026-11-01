@@ -1,7 +1,23 @@
 [build]
-  publish = "."
+  publish = "public"
+
+# Anciennes adresses de l'ancien site
+[[redirects]]
+  from = "/contact.html"
+  to = "/#contact"
+  status = 301
+
+[[redirects]]
+  from = "/images.html"
+  to = "/#gallery"
+  status = 301
 
 [[headers]]
   for = "/dossier-confidentiel.html"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow, noarchive"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
