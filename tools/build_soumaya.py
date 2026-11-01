@@ -81,7 +81,9 @@ head_js = """<script>
 })();
 </script>
 """ % json.dumps(DICT, ensure_ascii=False)
-sub('<meta charset="utf-8">\n', '<meta charset="utf-8">\n' + head_js)
+# Inséré après les balises meta/title/icon d'origine (viewport en premier, comme l'original)
+_anchor = "<script>\ntry{if('scrollRestoration' in history)"
+sub(_anchor, head_js + _anchor)
 
 # 2. Styles additionnels : sélecteur de langue + ajustements RTL / chinois
 extra_css = """
