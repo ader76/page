@@ -107,6 +107,10 @@ html[lang=ar] body{font-family:"Noto Naskh Arabic","Segoe UI",Tahoma,"Geeza Pro"
 html[lang=zh-Hans] body{font-family:Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif}
 html[lang=ar] .kicker,html[lang=zh-Hans] .kicker,html[lang=ar] .stat span,html[lang=zh-Hans] .stat span{letter-spacing:.04em}
 html[lang=ar] h1 span,html[lang=ar] .lead{line-height:1.8}
+/* Héro plus compact : suppression de la hauteur plein écran et des grands vides */
+.hero{min-height:0;padding:44px 0 40px;gap:44px}
+@media(max-width:900px){.hero{padding-top:32px}}
+@media(max-width:600px){.hero{padding:26px 0 32px;gap:24px}.hero-cta{margin-bottom:18px}}
 """
 sub("</style>\n\n<script>\ntry { if ('scrollRestoration'", extra_css + "</style>\n\n<script>\ntry { if ('scrollRestoration'")
 
