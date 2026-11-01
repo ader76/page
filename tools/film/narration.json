@@ -1,0 +1,55 @@
+{
+  "_info": "Texte lu par la voix off, par section du film : intro, 5 étapes, schéma 3D, fin. Nombres écrits en toutes lettres pour une prononciation correcte. 'speed' = length-scale Piper (plus petit = plus rapide).",
+  "voices": {
+    "fr": "fr_FR-tom-medium",
+    "en": "en_US-ryan-high",
+    "zh": "zh_CN-chaowen-medium",
+    "ar": "ar_JO-kareem-medium"
+  },
+  "fr": [
+    "Soumaya 7. Du foncier existant au projet : une présentation en cinq étapes, suivie du schéma des volumes en trois dimensions.",
+    "Étape un : la villa actuelle. Une villa R plus un, édifiée en mille neuf cent quatre-vingt-six, sur une parcelle titrée de mille cinq cent quinze mètres carrés, en façade de l'avenue Mehdi Ben Barka.",
+    "Étape deux : la démolition. La villa ne fait l'objet d'aucun classement patrimonial connu. L'acquéreur peut la réhabiliter, ou la démolir pour libérer le terrain.",
+    "Étape trois : le terrassement. Le rez-de-chaussée est décaissé d'un mètre cinquante, et l'on peut réaliser jusqu'à deux sous-sols, pour les parkings et les locaux techniques, sous réserve d'étude géotechnique.",
+    "Étape quatre : la structure. La hauteur autorisée est de neuf mètres, en R plus un, avec une emprise au sol d'environ six cent six mètres carrés, et environ mille soixante mètres carrés de plancher.",
+    "Étape cinq : le projet. Une façade vitrée, avec une visibilité maximale sur l'avenue, et un aspect R plus deux grâce au décaissement. Le bâtiment peut accueillir une clinique, un siège, un établissement d'enseignement ou un boutique-hôtel.",
+    "Le schéma des volumes : la parcelle de mille cinq cent quinze mètres carrés ; deux niveaux de sous-sol ; le décaissement d'un mètre cinquante ; le rez-de-chaussée, puis le R plus un, pour une hauteur totale de neuf mètres, et environ mille soixante mètres carrés de plancher.",
+    "Soumaya 7, à Souissi, Rabat. Mille cinq cent quinze mètres carrés titrés, en secteur A5, sur l'axe tertiaire. Prix de présentation : vingt-quatre millions de dirhams."
+  ],
+  "en": [
+    "Soumaya 7. From the existing site to the project: a presentation in five steps, followed by a three-dimensional massing diagram.",
+    "Step one: the existing villa. A two-storey villa, built in nineteen eighty-six, on a titled plot of one thousand five hundred and fifteen square metres, fronting Avenue Mehdi Ben Barka.",
+    "Step two: demolition. The villa has no known heritage listing. The buyer may refurbish it, or demolish it to clear the site.",
+    "Step three: earthworks. The ground floor is lowered by one and a half metres, and up to two basement levels can be built, for parking and plant rooms, subject to a geotechnical survey.",
+    "Step four: the structure. The permitted height is nine metres, ground plus one, with a footprint of about six hundred and six square metres, and about one thousand and sixty square metres of floor area.",
+    "Step five: the project. A glazed facade with maximum visibility on the avenue, reading as three storeys thanks to the lowered ground floor. The building can host a clinic, a headquarters, an educational facility or a boutique hotel.",
+    "The massing diagram: the plot of one thousand five hundred and fifteen square metres; two basement levels; the one and a half metre excavation; the ground floor, then the first floor, for a total height of nine metres, and about one thousand and sixty square metres of floor area.",
+    "Soumaya 7, in Souissi, Rabat. One thousand five hundred and fifteen titled square metres, in sector A5, on the business corridor. Asking price: twenty-four million dirhams."
+  ],
+  "zh": [
+    "Soumaya 7。从现有地块到项目：分五个阶段介绍，随后是三维体量示意图。",
+    "第一阶段：现有别墅。一栋建于一九八六年的两层别墅，位于一千五百一十五平方米的已登记产权地块上，临迈赫迪·本·巴尔卡大道。",
+    "第二阶段：拆除。该别墅没有任何已知的文物保护等级。买方可以选择翻新，或者拆除以腾空地块。",
+    "第三阶段：土方工程。首层下沉一点五米，最多可建两层地下室，用于停车场和设备用房，须经地质勘察。",
+    "第四阶段：主体结构。限高九米，地上两层，占地面积约六百零六平方米，总建筑面积约一千零六十平方米。",
+    "第五阶段：项目建成效果。玻璃幕墙，临街展示效果最佳；借助下沉设计，外观呈现三层效果。可用于诊所、企业总部、教育机构或精品酒店。",
+    "三维体量示意：一千五百一十五平方米的地块；两层地下室；一点五米的下沉；首层和二层，总高度九米，总建筑面积约一千零六十平方米。",
+    "Soumaya 7，位于拉巴特苏伊西。已登记产权面积一千五百一十五平方米，位于A5商务办公轴线。报价：两千四百万迪拉姆。"
+  ],
+  "ar": [
+    "سومايا سبعة. من العقار الحالي إلى المشروع: عرض في خمس مراحل، يليه مخطط ثلاثي الأبعاد للأحجام.",
+    "المرحلة الأولى: الفيلا الحالية. فيلا من طابقين، شيدت سنة ألف وتسعمائة وستة وثمانين، على قطعة أرض محفظة مساحتها ألف وخمسمائة وخمسة عشر مترا مربعا، تطل على شارع المهدي بن بركة.",
+    "المرحلة الثانية: الهدم. لا تخضع الفيلا لأي تصنيف تراثي معروف. ويمكن للمشتري إعادة تأهيلها، أو هدمها لتحرير الأرض.",
+    "المرحلة الثالثة: أشغال الحفر. يخفض الطابق الأرضي بمتر ونصف، ويمكن إنجاز طابقين سفليين لمواقف السيارات والمرافق التقنية، رهينا بدراسة جيوتقنية.",
+    "المرحلة الرابعة: الهيكل. العلو المسموح به تسعة أمتار، أي طابق أرضي وطابق أول، بمساحة مبنية على الأرض تقارب ستمائة وستة أمتار مربعة، ومساحة إجمالية للطوابق تقارب ألفا وستين مترا مربعا.",
+    "المرحلة الخامسة: المشروع. واجهة زجاجية بأقصى ظهور على الشارع، ومظهر بثلاثة طوابق بفضل خفض الطابق الأرضي. ويمكن أن يحتضن المبنى عيادة، أو مقر شركة، أو مؤسسة تعليمية، أو فندق بوتيك.",
+    "مخطط الأحجام: القطعة الأرضية بمساحة ألف وخمسمائة وخمسة عشر مترا مربعا؛ طابقان سفليان؛ خفض بمتر ونصف؛ الطابق الأرضي ثم الطابق الأول، بعلو إجمالي يبلغ تسعة أمتار، ومساحة طوابق تقارب ألفا وستين مترا مربعا.",
+    "سومايا سبعة، في السويسي بالرباط. ألف وخمسمائة وخمسة عشر مترا مربعا محفظة، في القطاع أ خمسة، على محور الأنشطة الثالثية. السعر المعروض: أربعة وعشرون مليون درهم."
+  ],
+  "speed": {
+    "fr": 1.0,
+    "en": 1.0,
+    "zh": 1.0,
+    "ar": 0.88
+  }
+}

@@ -1,0 +1,29 @@
+[build]
+  publish = "public"
+
+# Anciennes adresses de l'ancien site
+[[redirects]]
+  from = "/contact.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/images.html"
+  to = "/#dossier"
+  status = 301
+
+# L'ancien fichier source n'est plus publié : on renvoie vers la page d'accueil
+[[redirects]]
+  from = "/dossier-confidentiel.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/dossier-confidentiel"
+  to = "/"
+  status = 301
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
