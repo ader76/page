@@ -65,7 +65,7 @@ async function renderLang(browser, lang) {
   }
   await p.close();
   fs.mkdirSync(OUT, { recursive: true });
-  const out = path.join(OUT, `presentation-soumaya7-${lang}.mp4`);
+  const out = path.join(OUT, `soumaya7-film-voix-${lang}.mp4`);
   const a = ['-v', 'error', '-y', '-framerate', String(FPS), '-i', `${dir}/%05d.jpg`];
   if (VOICE) {
     // voix off seule : chaque phrase placée au début de sa section
